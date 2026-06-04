@@ -1,23 +1,20 @@
 # %% [markdown]
-# # Ames Housing: extended feature specification
+# # Ames Housing: parsimonious feature specification
 #
-# This analysis repeats the parsimonious Ames comparison using a richer set of
-# structural, quality, amenity, age, and location variables. All preprocessing
-# is fitted within each cross-validation training fold to prevent data leakage.
+# This analysis compares OLS, Random Forest, XGBoost, and TabPFN using six core
+# structural housing variables. The outer cross-validation loop uses five folds.
 
 # %%
 import numpy as np
 import pandas as pd
 from IPython.display import display
 from sklearn.base import clone
-from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
 from tabpfn import TabPFNRegressor
 from xgboost import XGBRegressor
 
@@ -26,102 +23,28 @@ RANDOM_STATE = 2
 # %%
 df = pd.read_csv("../Data/AmesHousing.csv")
 
-numeric_features = [
+features = [
     "Gr Liv Area",
-    "Total Bsmt SF",
-    "1st Flr SF",
-    "2nd Flr SF",
     "Full Bath",
-    "Half Bath",
     "Bedroom AbvGr",
-    "TotRms AbvGrd",
     "Garage Cars",
     "Garage Area",
-    "Year Built",
-    "Year Remod/Add",
-    "Overall Qual",
-    "Overall Cond",
-    "Fireplaces",
-    "Wood Deck SF",
-    "Open Porch SF",
-    "Lot Area",
+    "TotRms AbvGrd",
 ]
-
-categorical_features = [
-    "Neighborhood",
-    "House Style",
-    "Bldg Type",
-    "Kitchen Qual",
-    "Exter Qual",
-    "Bsmt Qual",
-    "Garage Qual",
-    "Central Air",
-    "Paved Drive",
-]
-
-extended_features = numeric_features + categorical_features
 target = "SalePrice"
 
-df_model = df[extended_features + [target]].copy()
-df_model = df_model.dropna(subset=[target])
+df_model = df[features + [target]].dropna(subset=[target]).copy()
 df_model["log_SalePrice"] = np.log(df_model[target])
 
-X = df_model[extended_features]
+X = df_model[features]
 y = df_model["log_SalePrice"]
 
 print(f"Observations: {len(df_model)}")
-print(f"Raw extended features: {len(extended_features)}")
-print(f"Numeric features: {len(numeric_features)}")
-print(f"Categorical features: {len(categorical_features)}")
+print(f"Parsimonious features: {len(features)}")
 
 # %% [markdown]
-# Numeric missing values are median-imputed. Categorical missing values are
-# assigned an explicit `Missing` category and then one-hot encoded. The
-# preprocessing pipeline is cloned and fitted separately inside every fold.
-
-# %%
-preprocessor = ColumnTransformer(
-    transformers=[
-        (
-            "numeric",
-            SimpleImputer(strategy="median"),
-            numeric_features,
-        ),
-        (
-            "categorical",
-            Pipeline(
-                steps=[
-                    (
-                        "imputer",
-                        SimpleImputer(
-                            strategy="constant",
-                            fill_value="Missing",
-                        ),
-                    ),
-                    (
-                        "onehot",
-                        OneHotEncoder(
-                            handle_unknown="ignore",
-                            sparse_output=False,
-                        ),
-                    ),
-                ]
-            ),
-            categorical_features,
-        ),
-    ],
-    verbose_feature_names_out=False,
-)
-
-preview_preprocessor = clone(preprocessor).fit(X)
-print(f"Features after preprocessing: {len(preview_preprocessor.get_feature_names_out())}")
-
-# %% [markdown]
-# ## Nested cross-validation
-#
-# The outer loop uses 5 folds to estimate out-of-sample performance. Random
-# Forest and XGBoost are tuned using a 3-fold grid search within each outer
-# training fold. OLS and TabPFN are not tuned.
+# Missing predictor values are median-imputed within each training fold. Random
+# Forest and XGBoost are tuned using 3-fold inner cross-validation.
 
 # %%
 outer_cv = KFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
@@ -139,7 +62,7 @@ def evaluate_nested_cv(model_name, estimator, param_grid=None):
 
         pipeline = Pipeline(
             steps=[
-                ("preprocessor", clone(preprocessor)),
+                ("imputer", SimpleImputer(strategy="median")),
                 ("model", clone(estimator)),
             ]
         )
@@ -233,12 +156,12 @@ display(cv_results)
 # %% [markdown]
 # ## Verified full-run results
 #
-# Results from the complete 5-fold outer / 3-fold inner nested cross-validation
-# run using all 2,930 observations.
+# These results come from the completed 5-fold outer / 3-fold inner nested
+# cross-validation run using all 2,930 observations.
 #
 # | Model | Mean RMSE | RMSE SD | Mean MAE | MAE SD | Mean R2 | R2 SD |
 # |---|---:|---:|---:|---:|---:|---:|
-# | TabPFN | 0.119426 | 0.016591 | 0.077258 | 0.003968 | 0.912864 | 0.023524 |
-# | XGBoost | 0.129579 | 0.013063 | 0.085851 | 0.003375 | 0.898162 | 0.019673 |
-# | Random Forest | 0.138895 | 0.012219 | 0.093178 | 0.004301 | 0.883225 | 0.019251 |
-# | OLS | 0.140997 | 0.023014 | 0.092164 | 0.001338 | 0.877946 | 0.038979 |
+# | TabPFN | 0.201965 | 0.016294 | 0.139957 | 0.006172 | 0.753402 | 0.036504 |
+# | XGBoost | 0.209523 | 0.011986 | 0.148970 | 0.005775 | 0.735212 | 0.026364 |
+# | Random Forest | 0.211452 | 0.013984 | 0.148038 | 0.005996 | 0.730115 | 0.032013 |
+# | OLS | 0.237455 | 0.022729 | 0.166787 | 0.009069 | 0.658501 | 0.061105 |
