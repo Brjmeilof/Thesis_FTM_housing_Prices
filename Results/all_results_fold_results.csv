@@ -1,0 +1,521 @@
+dataset,specification,sample_size,outer_folds,model,fold,rmse,mae,r2,best_params,zipcode_representation
+Ames Housing,Parsimonious,1000,5,OLS,1,0.2211415539835112,0.1621584421042107,0.7004921727758131,{},Not applicable
+Ames Housing,Parsimonious,1000,5,OLS,2,0.3046034088167788,0.1797968757869927,0.4813154271461225,{},Not applicable
+Ames Housing,Parsimonious,1000,5,OLS,3,0.2118025388340597,0.1555612329197762,0.7512877432952196,{},Not applicable
+Ames Housing,Parsimonious,1000,5,OLS,4,0.2197426406675503,0.1585649633481737,0.671507862184159,{},Not applicable
+Ames Housing,Parsimonious,1000,5,OLS,5,0.2230825135871525,0.1632335586813319,0.7002560709256472,{},Not applicable
+Ames Housing,Parsimonious,1000,5,Ridge,1,0.220569824125776,0.1616316977187193,0.7020388401411246,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,1000,5,Ridge,2,0.3044995870221454,0.1796995533210919,0.4816689464064383,{'model__alpha': 1},Not applicable
+Ames Housing,Parsimonious,1000,5,Ridge,3,0.2128910130389198,0.1561726938913543,0.7487248609260473,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,1000,5,Ridge,4,0.2199963571187199,0.1584624033785507,0.6707488654423013,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,1000,5,Ridge,5,0.2230119588519473,0.1627165452664092,0.7004456421196417,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,1000,5,Random Forest,1,0.2109974581275319,0.1533127112867703,0.7273396993882456,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,1000,5,Random Forest,2,0.2678039461115875,0.1673539840726035,0.5990707359743719,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,1000,5,Random Forest,3,0.2098314880712366,0.1497585516400267,0.7558952749382399,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,1000,5,Random Forest,4,0.2096763808166122,0.1436060282497447,0.7009145232690812,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,1000,5,Random Forest,5,0.2365263627035675,0.1617537242525077,0.663039926847161,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Parsimonious,1000,5,XGBoost,1,0.2118604096171708,0.1564836932894224,0.7251048499982318,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,1000,5,XGBoost,2,0.2567709400037974,0.1627915602433869,0.631425271250792,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,1000,5,XGBoost,3,0.211499373424171,0.1538183759706022,0.7519992266490758,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,1000,5,XGBoost,4,0.2081674410745003,0.1463908223603645,0.7052037814024411,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+Ames Housing,Parsimonious,1000,5,XGBoost,5,0.2234180311444815,0.1606789251106247,0.6993537592404404,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,1000,5,TabPFN,1,0.1973098200227602,0.1400864801481466,0.7615678234828716,{},Not applicable
+Ames Housing,Parsimonious,1000,5,TabPFN,2,0.2639636149405678,0.1574508811947325,0.6104870085875314,{},Not applicable
+Ames Housing,Parsimonious,1000,5,TabPFN,3,0.1806922454499746,0.1327021555874455,0.8189852792486685,{},Not applicable
+Ames Housing,Parsimonious,1000,5,TabPFN,4,0.1957607335997151,0.1323760946322359,0.7392961355165096,{},Not applicable
+Ames Housing,Parsimonious,1000,5,TabPFN,5,0.2049258196071751,0.1449855802113262,0.747062804609349,{},Not applicable
+Ames Housing,Parsimonious,2000,5,OLS,1,0.2266364866559391,0.1704183648953189,0.6684707677598223,{},Not applicable
+Ames Housing,Parsimonious,2000,5,OLS,2,0.2782979133426826,0.1799635321729684,0.5829987663055568,{},Not applicable
+Ames Housing,Parsimonious,2000,5,OLS,3,0.2569000817734789,0.1687131530503331,0.6367676779661597,{},Not applicable
+Ames Housing,Parsimonious,2000,5,OLS,4,0.2055038556383469,0.158561319689834,0.7221626323928819,{},Not applicable
+Ames Housing,Parsimonious,2000,5,OLS,5,0.232793132521099,0.1545371334721558,0.6270059482824935,{},Not applicable
+Ames Housing,Parsimonious,2000,5,Ridge,1,0.2268227373538369,0.1704406806520018,0.6679256399741609,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2000,5,Ridge,2,0.2779261988827907,0.1797408052744215,0.5841119753008616,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2000,5,Ridge,3,0.2572299727547589,0.1688213053663177,0.6358342099610745,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2000,5,Ridge,4,0.205628184438717,0.1584651444142092,0.7218263502756198,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2000,5,Ridge,5,0.2322765811490023,0.1544587299269391,0.6286594062342854,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2000,5,Random Forest,1,0.2110261667391966,0.1540735919258659,0.7125682163179048,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Parsimonious,2000,5,Random Forest,2,0.2477211289757694,0.1646531624042426,0.6695973355002649,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2000,5,Random Forest,3,0.2253680875973885,0.1434946749381553,0.7204620082056314,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2000,5,Random Forest,4,0.2033341955013233,0.1497858696367259,0.7279983427144846,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Parsimonious,2000,5,Random Forest,5,0.2006143952334074,0.1403459630080553,0.7229961768247052,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2000,5,XGBoost,1,0.2092924836128543,0.1556746843492834,0.7172716015685603,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2000,5,XGBoost,2,0.2415907310651567,0.1608201864442189,0.685748053965181,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 1.0}",Not applicable
+Ames Housing,Parsimonious,2000,5,XGBoost,3,0.2250081251994027,0.1455431401967319,0.7213542623687121,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2000,5,XGBoost,4,0.2008916239933534,0.1493131345524504,0.7344939841520656,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2000,5,XGBoost,5,0.2028454885741624,0.143029364171305,0.7168006295324749,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2000,5,TabPFN,1,0.1970680251240599,0.1419750033166486,0.7493345380899286,{},Not applicable
+Ames Housing,Parsimonious,2000,5,TabPFN,2,0.2350779655056336,0.1511099892653723,0.7024627897936238,{},Not applicable
+Ames Housing,Parsimonious,2000,5,TabPFN,3,0.2190911213367265,0.1395542092528852,0.735816579852755,{},Not applicable
+Ames Housing,Parsimonious,2000,5,TabPFN,4,0.1823891792891406,0.1362404018470405,0.7811488440539697,{},Not applicable
+Ames Housing,Parsimonious,2000,5,TabPFN,5,0.1922654955755227,0.1353959762113251,0.7455723651515518,{},Not applicable
+Ames Housing,Parsimonious,2930,5,OLS,1,0.2182653517493251,0.165355465115875,0.7117326890299913,{},Not applicable
+Ames Housing,Parsimonious,2930,5,OLS,2,0.2661455596292376,0.1775518914878459,0.5860781514531654,{},Not applicable
+Ames Housing,Parsimonious,2930,5,OLS,3,0.2561230266441935,0.1672388673824013,0.6014308109618467,{},Not applicable
+Ames Housing,Parsimonious,2930,5,OLS,4,0.2153154126838023,0.1528669043833717,0.7152323487129264,{},Not applicable
+Ames Housing,Parsimonious,2930,5,OLS,5,0.2314271002038708,0.1709220804802242,0.6780299865479372,{},Not applicable
+Ames Housing,Parsimonious,2930,5,Ridge,1,0.2184385741406766,0.1653510037105516,0.7112749510765577,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2930,5,Ridge,2,0.2659602216718004,0.1774743107093369,0.5866544430026455,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2930,5,Ridge,3,0.2558767698058874,0.1671481065482269,0.6021968740907232,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2930,5,Ridge,4,0.2154266646888546,0.1528658034776619,0.7149379976819823,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2930,5,Ridge,5,0.2315479418656821,0.1708821754216336,0.6776936599089208,{'model__alpha': 10},Not applicable
+Ames Housing,Parsimonious,2930,5,Random Forest,1,0.2002801421491588,0.1454474405584127,0.7572822265384579,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Parsimonious,2930,5,Random Forest,2,0.2334437103473612,0.1569721783258761,0.6815477983007053,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2930,5,Random Forest,3,0.2171575936542502,0.148743522457043,0.7134789635557915,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2930,5,Random Forest,4,0.2016696160850214,0.1405189670916824,0.7501833620836069,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Parsimonious,2930,5,Random Forest,5,0.2047076573820684,0.1485085674424603,0.7480843344822042,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Parsimonious,2930,5,XGBoost,1,0.1980556806900552,0.1468548160198267,0.7626438961367832,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+Ames Housing,Parsimonious,2930,5,XGBoost,2,0.2294315738421932,0.1565625459062667,0.6924000433958265,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2930,5,XGBoost,3,0.2101501574783014,0.1472363827805904,0.7316720504588066,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2930,5,XGBoost,4,0.2033613145635565,0.1415640111220936,0.7459746272465326,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2930,5,XGBoost,5,0.2066152593478731,0.1526327923005421,0.7433674236496381,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Parsimonious,2930,5,TabPFN,1,0.182745093511155,0.1332477638642228,0.7979228312010804,{},Not applicable
+Ames Housing,Parsimonious,2930,5,TabPFN,2,0.225617434849139,0.1472551619809864,0.7025422998842497,{},Not applicable
+Ames Housing,Parsimonious,2930,5,TabPFN,3,0.2095520070183106,0.1412058697020367,0.7331973604759567,{},Not applicable
+Ames Housing,Parsimonious,2930,5,TabPFN,4,0.1946501151540097,0.1339951966419643,0.7672714058180959,{},Not applicable
+Ames Housing,Parsimonious,2930,5,TabPFN,5,0.1972618300695291,0.1440821028287655,0.7660768980669078,{},Not applicable
+Ames Housing,Extended,1000,5,OLS,1,0.1419139577227287,0.1072014551301101,0.8766560971743889,{},Not applicable
+Ames Housing,Extended,1000,5,OLS,2,0.2261384435634178,0.103658076017772,0.7141207657882847,{},Not applicable
+Ames Housing,Extended,1000,5,OLS,3,0.133398570359623,0.0993355068349185,0.901340884999163,{},Not applicable
+Ames Housing,Extended,1000,5,OLS,4,0.1320228832429701,0.1002663284086901,0.8814245647890107,{},Not applicable
+Ames Housing,Extended,1000,5,OLS,5,0.126415118087521,0.0927448455472247,0.9037463146718098,{},Not applicable
+Ames Housing,Extended,1000,5,Ridge,1,0.141747005180286,0.1062583331442865,0.8769461386274956,{'model__alpha': 100},Not applicable
+Ames Housing,Extended,1000,5,Ridge,2,0.2276098902771388,0.1003731774060294,0.7103883209732407,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,1000,5,Ridge,3,0.1252828853973988,0.0922048913774863,0.91298014423966,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,1000,5,Ridge,4,0.1265528992580771,0.0949558049496518,0.8910466722671981,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,1000,5,Ridge,5,0.127053794371153,0.0925986229397053,0.9027712692932452,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,1000,5,Random Forest,1,0.1419089924139036,0.0930649545906503,0.8766647281767929,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Extended,1000,5,Random Forest,2,0.2027521405193184,0.1119631066056844,0.7701922300427807,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Extended,1000,5,Random Forest,3,0.1670636128554724,0.1094154712668673,0.8452614214551186,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,1000,5,Random Forest,4,0.1444690746261286,0.1047531054319058,0.8580138173459386,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,1000,5,Random Forest,5,0.1530704716137394,0.1120556800628116,0.8588755774842616,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,1000,5,XGBoost,1,0.1342011210669721,0.0896542922641415,0.8896989237760659,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,1000,5,XGBoost,2,0.1919621284198089,0.1005408004513102,0.7940010883669963,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,1000,5,XGBoost,3,0.1286292338232067,0.0924434440587513,0.9082694007847352,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,1000,5,XGBoost,4,0.1322055296490305,0.0968320022472076,0.8810962526441507,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,1000,5,XGBoost,5,0.1312805562245946,0.0947835210551256,0.8961945504739911,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,1000,5,TabPFN,1,0.1200745273862813,0.0825349011750959,0.9116982655462984,{},Not applicable
+Ames Housing,Extended,1000,5,TabPFN,2,0.1912380400257043,0.0922398999413675,0.795552228699539,{},Not applicable
+Ames Housing,Extended,1000,5,TabPFN,3,0.1148873936865668,0.0813605961026097,0.926822154413068,{},Not applicable
+Ames Housing,Extended,1000,5,TabPFN,4,0.122877376138791,0.0860125392374379,0.8972835126042762,{},Not applicable
+Ames Housing,Extended,1000,5,TabPFN,5,0.1071212151174889,0.074532726952852,0.9308853173790872,{},Not applicable
+Ames Housing,Extended,2000,5,OLS,1,0.1309861532407916,0.0975749482668337,0.8892578512548062,{},Not applicable
+Ames Housing,Extended,2000,5,OLS,2,0.1799906755199824,0.1011405198624533,0.8255714969935688,{},Not applicable
+Ames Housing,Extended,2000,5,OLS,3,0.1535756248554512,0.0965248891907516,0.870192261407533,{},Not applicable
+Ames Housing,Extended,2000,5,OLS,4,0.1396537409494573,0.1033319123226143,0.8716913740451042,{},Not applicable
+Ames Housing,Extended,2000,5,OLS,5,0.1592622308989661,0.09119683073062,0.8254229433138074,{},Not applicable
+Ames Housing,Extended,2000,5,Ridge,1,0.1308345662424475,0.0974561825461415,0.8895140211762111,{'model__alpha': 0.1},Not applicable
+Ames Housing,Extended,2000,5,Ridge,2,0.1816844915364411,0.1000001443260343,0.8222731042552447,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2000,5,Ridge,3,0.1531127970877851,0.0961574617158861,0.8709734803941083,{'model__alpha': 1},Not applicable
+Ames Housing,Extended,2000,5,Ridge,4,0.1385527143181814,0.1023783166845111,0.8737065628093573,{'model__alpha': 1},Not applicable
+Ames Housing,Extended,2000,5,Ridge,5,0.16391989318731,0.0904762893504291,0.8150625342199366,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2000,5,Random Forest,1,0.1367508941534625,0.0981689314759242,0.8792957619008311,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2000,5,Random Forest,2,0.1871536713001493,0.1101301469966763,0.8114119623459504,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2000,5,Random Forest,3,0.1505651335246828,0.0956440297437409,0.8752315358091627,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2000,5,Random Forest,4,0.1387702610167189,0.0992842598149217,0.873309655538704,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2000,5,Random Forest,5,0.1385244289533601,0.0931325044361567,0.8679269174164992,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Extended,2000,5,XGBoost,1,0.1272468896824159,0.0903450318321632,0.8954903192875109,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2000,5,XGBoost,2,0.1617278172342933,0.093425091734519,0.859172687970343,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2000,5,XGBoost,3,0.1464365234833559,0.087407201000211,0.8819802143016827,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2000,5,XGBoost,4,0.1304479902987245,0.0927655220674755,0.8880496406426088,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+Ames Housing,Extended,2000,5,XGBoost,5,0.1212974395216066,0.0867240099926324,0.8987337228883554,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2000,5,TabPFN,1,0.1145315700486057,0.0794237795261402,0.9153333067544976,{},Not applicable
+Ames Housing,Extended,2000,5,TabPFN,2,0.1519714873175244,0.0860072655464036,0.8756511802743583,{},Not applicable
+Ames Housing,Extended,2000,5,TabPFN,3,0.1401573188764723,0.0843659063953876,0.8918845988011537,{},Not applicable
+Ames Housing,Extended,2000,5,TabPFN,4,0.115340082198702,0.0797404445440897,0.9124792118835364,{},Not applicable
+Ames Housing,Extended,2000,5,TabPFN,5,0.1204854612147584,0.0791259478545581,0.9000849600714906,{},Not applicable
+Ames Housing,Extended,2930,5,OLS,1,0.119822917744283,0.0910425853729168,0.9131228473142672,{},Not applicable
+Ames Housing,Extended,2930,5,OLS,2,0.1650138139284697,0.0943077571325452,0.8408815624465831,{},Not applicable
+Ames Housing,Extended,2930,5,OLS,3,0.1668210073955085,0.0925680154999336,0.8309138828066577,{},Not applicable
+Ames Housing,Extended,2930,5,OLS,4,0.1294672755252617,0.091701040885777,0.8970419202569131,{},Not applicable
+Ames Housing,Extended,2930,5,OLS,5,0.1238623545105265,0.0911996873309541,0.9077713904877336,{},Not applicable
+Ames Housing,Extended,2930,5,Ridge,1,0.1194285664967376,0.0894421113688793,0.913693752065492,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2930,5,Ridge,2,0.1664068860349295,0.0943502637368445,0.8381836172230706,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2930,5,Ridge,3,0.166869035281394,0.0925754681848674,0.8308165087664546,{'model__alpha': 0.1},Not applicable
+Ames Housing,Extended,2930,5,Ridge,4,0.1268211679979625,0.0901237333820681,0.9012075141495928,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2930,5,Ridge,5,0.1245423037470077,0.0911144000575704,0.906756023066484,{'model__alpha': 10},Not applicable
+Ames Housing,Extended,2930,5,Random Forest,1,0.123918885901059,0.089911030103693,0.90708179787803,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2930,5,Random Forest,2,0.1529565334806188,0.0982341770909659,0.8632850631527338,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2930,5,Random Forest,3,0.1498810644611748,0.0937578883083704,0.8635102588920142,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2930,5,Random Forest,4,0.1324888987339361,0.0878330523601747,0.8921799828555103,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+Ames Housing,Extended,2930,5,Random Forest,5,0.1352288773906947,0.0961545011671454,0.8900675558313365,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+Ames Housing,Extended,2930,5,XGBoost,1,0.1143978924211917,0.0842510608243108,0.920811549622474,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2930,5,XGBoost,2,0.1427696403097006,0.0904674122997903,0.8808890654812003,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2930,5,XGBoost,3,0.1438049757457405,0.0871919493463264,0.8743523707184617,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+Ames Housing,Extended,2930,5,XGBoost,4,0.1228141989705599,0.0813926855843887,0.9073516741333296,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2930,5,XGBoost,5,0.1241077876807477,0.0859512450433853,0.907405526514344,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+Ames Housing,Extended,2930,5,TabPFN,1,0.0992125898730816,0.0712223265494077,0.9404393579041518,{},Not applicable
+Ames Housing,Extended,2930,5,TabPFN,2,0.1336582961583173,0.0817093775870645,0.8956069124873408,{},Not applicable
+Ames Housing,Extended,2930,5,TabPFN,3,0.1390564291616772,0.0797313895286524,0.8825133235799445,{},Not applicable
+Ames Housing,Extended,2930,5,TabPFN,4,0.1149856311833958,0.0764863322564945,0.9187866242057058,{},Not applicable
+Ames Housing,Extended,2930,5,TabPFN,5,0.110216184324844,0.077139437008756,0.926973961484432,{},Not applicable
+King County,Parsimonious,1000,5,OLS,1,0.3928723102590338,0.3028053874291349,0.5886756274568617,{},Not applicable
+King County,Parsimonious,1000,5,OLS,2,0.3543338207115496,0.2876906078776466,0.4782898870201112,{},Not applicable
+King County,Parsimonious,1000,5,OLS,3,0.3412560156552857,0.2697735430345252,0.5853249390790092,{},Not applicable
+King County,Parsimonious,1000,5,OLS,4,0.3823712465739435,0.3094986569557097,0.5514698880620181,{},Not applicable
+King County,Parsimonious,1000,5,OLS,5,0.3694440134115385,0.2969935984291817,0.5014529095544857,{},Not applicable
+King County,Parsimonious,1000,5,Ridge,1,0.3927873926189918,0.3029038835609789,0.5888534201862214,{'model__alpha': 1},Not applicable
+King County,Parsimonious,1000,5,Ridge,2,0.3550373253032037,0.2879241566307147,0.4762161938528869,{'model__alpha': 10},Not applicable
+King County,Parsimonious,1000,5,Ridge,3,0.3412006625605239,0.2698717751183097,0.5854594520857304,{'model__alpha': 10},Not applicable
+King County,Parsimonious,1000,5,Ridge,4,0.3831002248607827,0.3103065408136577,0.5497580418229933,{'model__alpha': 10},Not applicable
+King County,Parsimonious,1000,5,Ridge,5,0.3683553835791441,0.2967314431331971,0.504386688897446,{'model__alpha': 10},Not applicable
+King County,Parsimonious,1000,5,Random Forest,1,0.3906513037644573,0.3081783079887137,0.5933131231665636,"{'model__max_depth': 5, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,1000,5,Random Forest,2,0.3499958742540905,0.2837267611847276,0.4909858084812627,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,1000,5,Random Forest,3,0.3336121349004707,0.26167237530285,0.6036937109937169,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,1000,5,Random Forest,4,0.3771107821478199,0.3099269006140285,0.5637262828261809,"{'model__max_depth': 5, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,1000,5,Random Forest,5,0.3744165380264684,0.3000398042052732,0.4879422239382825,"{'model__max_depth': 5, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,1000,5,XGBoost,1,0.375180221380468,0.2889978998407156,0.6248875547669215,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,1000,5,XGBoost,2,0.3453594902080829,0.2793727327711339,0.5043822746959736,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,1000,5,XGBoost,3,0.3188117757861513,0.2577907342640887,0.6380771575536017,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,1000,5,XGBoost,4,0.364837527129043,0.3001679185494579,0.5916616612310888,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,1000,5,XGBoost,5,0.3640395227757249,0.2928054460058103,0.5159324259762947,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,1000,5,TabPFN,1,0.3549646262779193,0.2749898104160535,0.6642223739319093,{},Not applicable
+King County,Parsimonious,1000,5,TabPFN,2,0.3459225085426629,0.2740977546355971,0.5027650073174723,{},Not applicable
+King County,Parsimonious,1000,5,TabPFN,3,0.3157583176154424,0.2502113294833968,0.6449766772824226,{},Not applicable
+King County,Parsimonious,1000,5,TabPFN,4,0.3540197411503856,0.2906408198285112,0.615517912698512,{},Not applicable
+King County,Parsimonious,1000,5,TabPFN,5,0.3555914519944375,0.2848821224277308,0.5381387315212011,{},Not applicable
+King County,Parsimonious,2500,5,OLS,1,0.3738232740550197,0.2995057542572218,0.510534688747014,{},Not applicable
+King County,Parsimonious,2500,5,OLS,2,0.3724135299375303,0.2912149065461571,0.5691916460698008,{},Not applicable
+King County,Parsimonious,2500,5,OLS,3,0.3556855184049957,0.2862203484671872,0.516630524343525,{},Not applicable
+King County,Parsimonious,2500,5,OLS,4,0.3577027041374827,0.29611432281885,0.5752522841547102,{},Not applicable
+King County,Parsimonious,2500,5,OLS,5,0.3493994417413993,0.2788869759867678,0.5678776003143374,{},Not applicable
+King County,Parsimonious,2500,5,Ridge,1,0.3740431751544737,0.2997647891402944,0.5099586645915557,{'model__alpha': 10},Not applicable
+King County,Parsimonious,2500,5,Ridge,2,0.3723947218561081,0.2912334317886151,0.5692351593868048,{'model__alpha': 1},Not applicable
+King County,Parsimonious,2500,5,Ridge,3,0.3556780454623232,0.2862262772196166,0.5166508352881558,{'model__alpha': 1},Not applicable
+King County,Parsimonious,2500,5,Ridge,4,0.3578370176507836,0.2962699611941415,0.5749332478822329,{'model__alpha': 10},Not applicable
+King County,Parsimonious,2500,5,Ridge,5,0.3492338464313782,0.278847731680412,0.568287105752143,{'model__alpha': 10},Not applicable
+King County,Parsimonious,2500,5,Random Forest,1,0.3747382191269012,0.295368217381767,0.5081357909267666,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,2500,5,Random Forest,2,0.3654444692325133,0.2866912286228796,0.5851644165902106,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,2500,5,Random Forest,3,0.3550393583660934,0.2781020182122515,0.5183851661295993,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,2500,5,Random Forest,4,0.3398629423259212,0.2778126563274569,0.6165628117355602,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,2500,5,Random Forest,5,0.3361938911830028,0.2616971869530247,0.5999244588739524,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,2500,5,XGBoost,1,0.3656282804807341,0.291021009163562,0.5317596833480993,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,2500,5,XGBoost,2,0.3483449354347376,0.2736938132618236,0.6230773669186721,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,2500,5,XGBoost,3,0.3499758106309158,0.2788833724579765,0.5320247218593963,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,2500,5,XGBoost,4,0.337121155150299,0.2752380054569663,0.6227244871007105,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,2500,5,XGBoost,5,0.3346449392560478,0.2673853001396961,0.6036025162356184,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,2500,5,TabPFN,1,0.3519292274490816,0.2756526159197575,0.5661896422733057,{},Not applicable
+King County,Parsimonious,2500,5,TabPFN,2,0.344144725911406,0.2639802145290125,0.6321121444688957,{},Not applicable
+King County,Parsimonious,2500,5,TabPFN,3,0.3351697796094512,0.2638939570961198,0.5707833481975455,{},Not applicable
+King County,Parsimonious,2500,5,TabPFN,4,0.3281624319258956,0.2630143996967727,0.6425096456195607,{},Not applicable
+King County,Parsimonious,2500,5,TabPFN,5,0.3230635524255599,0.2549411983865643,0.6305647818339828,{},Not applicable
+King County,Parsimonious,5000,5,OLS,1,0.3675082931658326,0.2945540129495855,0.5360982220455394,{},Not applicable
+King County,Parsimonious,5000,5,OLS,2,0.3555233427475437,0.2857407298686762,0.5307314587259865,{},Not applicable
+King County,Parsimonious,5000,5,OLS,3,0.3412315268396136,0.2775867217828159,0.5689877483123837,{},Not applicable
+King County,Parsimonious,5000,5,OLS,4,0.3618851837898617,0.2881447237380569,0.5074848686470289,{},Not applicable
+King County,Parsimonious,5000,5,OLS,5,0.3636679344273118,0.2906584371161155,0.5615678688277939,{},Not applicable
+King County,Parsimonious,5000,5,Ridge,1,0.3674924954850684,0.2945521869699986,0.5361381036744315,{'model__alpha': 1},Not applicable
+King County,Parsimonious,5000,5,Ridge,2,0.355567679502639,0.2858399833188492,0.5306144079491819,{'model__alpha': 10},Not applicable
+King County,Parsimonious,5000,5,Ridge,3,0.3412686307721571,0.2776955874380227,0.5688940106725959,{'model__alpha': 10},Not applicable
+King County,Parsimonious,5000,5,Ridge,4,0.3619724258017275,0.2882449995956789,0.5072473723794432,{'model__alpha': 10},Not applicable
+King County,Parsimonious,5000,5,Ridge,5,0.3636401597582306,0.2907082985159935,0.5616348356466528,{'model__alpha': 10},Not applicable
+King County,Parsimonious,5000,5,Random Forest,1,0.3521283824832068,0.2818769571238267,0.5741135596280518,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,5000,5,Random Forest,2,0.3452503817727262,0.2727949381665647,0.5574589777690095,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,5000,5,Random Forest,3,0.3363098854012609,0.265822122529455,0.5813312145061239,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,5000,5,Random Forest,4,0.3496918930882692,0.274432311838807,0.5401151523177168,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+King County,Parsimonious,5000,5,Random Forest,5,0.3457954633300776,0.2698638358322073,0.6036024720960305,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,5000,5,XGBoost,1,0.3466405593625033,0.2775197239412554,0.5872847627749952,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+King County,Parsimonious,5000,5,XGBoost,2,0.3402883177822399,0.270202122953832,0.5700882852401499,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,5000,5,XGBoost,3,0.3274842045112328,0.2616993011491316,0.6030168881934556,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,5000,5,XGBoost,4,0.3437795161402551,0.2705317784295812,0.5555345939663325,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,5000,5,XGBoost,5,0.3426044191800407,0.2688743653706645,0.6108847283202454,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,5000,5,TabPFN,1,0.3386820987058099,0.2683547495908782,0.6060181328973713,{},Not applicable
+King County,Parsimonious,5000,5,TabPFN,2,0.3346618675363957,0.2629864200163709,0.5841873856492048,{},Not applicable
+King County,Parsimonious,5000,5,TabPFN,3,0.3234438724646192,0.2561072151497424,0.6127520097670809,{},Not applicable
+King County,Parsimonious,5000,5,TabPFN,4,0.3401032843565422,0.2641094376307576,0.5649896158702282,{},Not applicable
+King County,Parsimonious,5000,5,TabPFN,5,0.3354543539111299,0.2621414864055711,0.6269567200634883,{},Not applicable
+King County,Parsimonious,21613,5,OLS,1,0.3560929799084882,0.2837500186619682,0.5512964261611135,{},Not applicable
+King County,Parsimonious,21613,5,OLS,2,0.3536140470162607,0.2851032559476315,0.5402853429709132,{},Not applicable
+King County,Parsimonious,21613,5,OLS,3,0.3658573350304843,0.2899108751910513,0.5196676187670533,{},Not applicable
+King County,Parsimonious,21613,5,OLS,4,0.3525493892251632,0.2834136938213326,0.5543297583808302,{},Not applicable
+King County,Parsimonious,21613,5,OLS,5,0.3556894424130861,0.2851303016539042,0.5390154472265904,{},Not applicable
+King County,Extended,1000,5,OLS,1,0.2045672228204244,0.1517855577258348,0.8884797585530517,{},One-hot encoded
+King County,Extended,1000,5,OLS,2,0.2103000202978343,0.1524166176744893,0.8162265915957575,{},One-hot encoded
+King County,Extended,1000,5,OLS,3,0.2185157196500553,0.1559746530622867,0.829975050272921,{},One-hot encoded
+King County,Extended,1000,5,OLS,4,0.2170613939399505,0.1542657488726706,0.8554605738590055,{},One-hot encoded
+King County,Extended,1000,5,OLS,5,0.1928402595844612,0.1447309735269376,0.8641672998636907,{},One-hot encoded
+King County,Extended,1000,5,Ridge,1,0.2012991047746621,0.1500047438143488,0.8920145383115915,{'model__alpha': 1},One-hot encoded
+King County,Extended,1000,5,Ridge,2,0.2046596604450193,0.1517669485678655,0.8259521994519177,{'model__alpha': 1},One-hot encoded
+King County,Extended,1000,5,Ridge,3,0.2126443103265625,0.1498903604664024,0.8389892699368992,{'model__alpha': 1},One-hot encoded
+King County,Extended,1000,5,Ridge,4,0.2217205596584358,0.1578387089931724,0.849188977980277,{'model__alpha': 1},One-hot encoded
+King County,Extended,1000,5,Ridge,5,0.1975923218944618,0.1500616124799757,0.8573903059152955,{'model__alpha': 1},One-hot encoded
+King County,Extended,1000,5,Random Forest,1,0.2337165558766326,0.1596247114473533,0.8544337956015757,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,1000,5,Random Forest,2,0.2267060860839231,0.1600770944622115,0.7864348429506828,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,1000,5,Random Forest,3,0.2227960900091015,0.1546353893971676,0.8232487820311017,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",One-hot encoded
+King County,Extended,1000,5,Random Forest,4,0.2295512276318475,0.1695367012100611,0.838348257571038,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,1000,5,Random Forest,5,0.2062449840273595,0.152738703389558,0.8446269435112651,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,1000,5,XGBoost,1,0.2029901655127861,0.1404760545660934,0.8901926027009537,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,1000,5,XGBoost,2,0.2027533998757767,0.1432858957462344,0.829179365059427,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,1000,5,XGBoost,3,0.2220202027328995,0.159321554455401,0.8244777104901447,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,1000,5,XGBoost,4,0.202624419190847,0.1509490281959634,0.8740481018884277,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,1000,5,XGBoost,5,0.1973837705344801,0.1439613388330252,0.8576911855230361,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 1.0}",One-hot encoded
+King County,Extended,1000,5,TabPFN,1,0.1823975270661897,0.1288390515525078,0.9113416806662992,{},Category-coded
+King County,Extended,1000,5,TabPFN,2,0.1825109402641945,0.1281356359617722,0.8615854178541335,{},Category-coded
+King County,Extended,1000,5,TabPFN,3,0.2036551004988934,0.1392651780215608,0.8523144964298096,{},Category-coded
+King County,Extended,1000,5,TabPFN,4,0.1835915960179076,0.1320505773651094,0.8965985222644026,{},Category-coded
+King County,Extended,1000,5,TabPFN,5,0.1692225507452134,0.1224228590358616,0.8954015152922744,{},Category-coded
+King County,Extended,2500,5,OLS,1,0.2029727091810179,0.1521907048254697,0.8557005945139615,{},One-hot encoded
+King County,Extended,2500,5,OLS,2,0.1980316399467605,0.1400171842184611,0.8781845474948743,{},One-hot encoded
+King County,Extended,2500,5,OLS,3,0.1768725774423574,0.129867387631135,0.8804724923356289,{},One-hot encoded
+King County,Extended,2500,5,OLS,4,0.1944723609858652,0.142113643769834,0.8744541449204044,{},One-hot encoded
+King County,Extended,2500,5,OLS,5,0.1871464510377939,0.1421185952404864,0.8760274434708756,{},One-hot encoded
+King County,Extended,2500,5,Ridge,1,0.2029684897326321,0.1522097448189492,0.8557065939172054,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,2500,5,Ridge,2,0.1979927521286451,0.1399605598544127,0.8782323850226753,{'model__alpha': 0.01},One-hot encoded
+King County,Extended,2500,5,Ridge,3,0.1770053001817412,0.1301456644737672,0.8802930414501551,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,2500,5,Ridge,4,0.1944810509491284,0.1421751117218751,0.8744429246807953,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,2500,5,Ridge,5,0.1872825948196961,0.1422133977547907,0.8758470047634002,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,2500,5,Random Forest,1,0.2196096360725485,0.1558073883986677,0.8310757383743752,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,2500,5,Random Forest,2,0.2079012009763422,0.1440348059580874,0.865739824334565,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,2500,5,Random Forest,3,0.1830671286233702,0.1305675062804316,0.8719535347099203,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,2500,5,Random Forest,4,0.1977570273757845,0.140174208980226,0.8701773541639796,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,2500,5,Random Forest,5,0.1908607083852404,0.1405743611337692,0.8710576953035206,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,2500,5,XGBoost,1,0.1919335775572383,0.1398955307096543,0.8709698620309819,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,2500,5,XGBoost,2,0.1849494069695866,0.1310435037637913,0.8937475137551318,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,2500,5,XGBoost,3,0.1662495972552109,0.1208577155548539,0.8943989932516526,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,2500,5,XGBoost,4,0.1841115437186152,0.1331315276755513,0.8874750977560198,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,2500,5,XGBoost,5,0.1804767885550399,0.1294296712341228,0.8847064333235313,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,2500,5,TabPFN,1,0.1758069969122664,0.128662394790033,0.8917416120646786,{},Category-coded
+King County,Extended,2500,5,TabPFN,2,0.1722975515109363,0.1168006160992525,0.9077871539043644,{},Category-coded
+King County,Extended,2500,5,TabPFN,3,0.1547399637968994,0.1083430600823167,0.9085145904466396,{},Category-coded
+King County,Extended,2500,5,TabPFN,4,0.1678307988572036,0.1171205338793822,0.9064960561805804,{},Category-coded
+King County,Extended,2500,5,TabPFN,5,0.1678790933082586,0.118956947811978,0.900240194061583,{},Category-coded
+King County,Extended,5000,5,OLS,1,0.1869563438893897,0.1378270593447379,0.8799472363018025,{},One-hot encoded
+King County,Extended,5000,5,OLS,2,0.1904472575170762,0.1400370551483331,0.8653412291571816,{},One-hot encoded
+King County,Extended,5000,5,OLS,3,0.178437661527199,0.134363872631831,0.8821405628767375,{},One-hot encoded
+King County,Extended,5000,5,OLS,4,0.1938589594852037,0.1415760286219262,0.8586649987535289,{},One-hot encoded
+King County,Extended,5000,5,OLS,5,0.1911225943690581,0.1391432863041228,0.8789077304335602,{},One-hot encoded
+King County,Extended,5000,5,Ridge,1,0.1869700725203217,0.1378170231483442,0.8799296041576885,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,5000,5,Ridge,2,0.1904385585461432,0.1400324479725215,0.8653535303685105,{'model__alpha': 0.01},One-hot encoded
+King County,Extended,5000,5,Ridge,3,0.1783172818836176,0.1342937573578557,0.8822995325821098,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,5000,5,Ridge,4,0.1939045895035485,0.1415855535269759,0.8585984567922477,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,5000,5,Ridge,5,0.1912675729841438,0.1392960766431185,0.8787239484146161,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,5000,5,Random Forest,1,0.189683522045708,0.1354845584410834,0.8764192121810436,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,5000,5,Random Forest,2,0.1981326793775607,0.1381263740771773,0.8542537380506483,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,5000,5,Random Forest,3,0.1800447608726991,0.1305869078296331,0.8800079996978515,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,5000,5,Random Forest,4,0.2005881740546338,0.1402589984628656,0.8486826864435708,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",One-hot encoded
+King County,Extended,5000,5,Random Forest,5,0.1919793628104172,0.1360269935606418,0.8778196269850671,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,5000,5,XGBoost,1,0.1749954077154931,0.1259344276356179,0.8948171211368166,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,5000,5,XGBoost,2,0.1755477779745411,0.1254871925003968,0.8855868683325414,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,5000,5,XGBoost,3,0.1602861434037819,0.1189590482214893,0.9048993958906872,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,5000,5,XGBoost,4,0.1766232599241977,0.1253821306108229,0.8826795379278992,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,5000,5,XGBoost,5,0.1772804708476116,0.1279509550621276,0.8958128524715583,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,5000,5,TabPFN,1,0.1617643019114623,0.1146335883064318,0.9101212290071964,{},Category-coded
+King County,Extended,5000,5,TabPFN,2,0.1639839392499374,0.1143369557488889,0.900163848933718,{},Category-coded
+King County,Extended,5000,5,TabPFN,3,0.1464332121727215,0.1075177573362031,0.9206274204228482,{},Category-coded
+King County,Extended,5000,5,TabPFN,4,0.1695361675604305,0.1164623438786614,0.8919057244226059,{},Category-coded
+King County,Extended,5000,5,TabPFN,5,0.1645358597380867,0.1159115635172993,0.9102543340465724,{},Category-coded
+King County,Extended,21613,5,OLS,1,0.1884017987253607,0.138347394364581,0.8743961954939228,{},One-hot encoded
+King County,Extended,21613,5,OLS,2,0.1861553226168394,0.1370881563989942,0.8725968254315686,{},One-hot encoded
+King County,Extended,21613,5,OLS,3,0.1887343669075755,0.1390869933120028,0.8721736731557775,{},One-hot encoded
+King County,Extended,21613,5,OLS,4,0.188085817643761,0.137209111721784,0.8731513639447622,{},One-hot encoded
+King County,Extended,21613,5,OLS,5,0.1889669107398741,0.1376699481111056,0.869888420236131,{},One-hot encoded
+California Housing,Parsimonious,1000,5,OLS,1,0.4184624389472267,0.3245222862534069,0.501332301584114,{},Not applicable
+California Housing,Parsimonious,1000,5,OLS,2,0.4105344091691961,0.3014911680523783,0.4351353110897799,{},Not applicable
+California Housing,Parsimonious,1000,5,OLS,3,0.3966540562143457,0.3126657962008459,0.5620483510450338,{},Not applicable
+California Housing,Parsimonious,1000,5,OLS,4,0.4158755349103485,0.319739488638703,0.4708401075552866,{},Not applicable
+California Housing,Parsimonious,1000,5,OLS,5,0.3991745447264609,0.2969453337707475,0.4635117876824308,{},Not applicable
+California Housing,Parsimonious,1000,5,Ridge,1,0.4184308813645674,0.3245468455101132,0.5014075109805552,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,1000,5,Ridge,2,0.4090144172458912,0.3024936755939134,0.4393103585095479,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,1000,5,Ridge,3,0.3968073466295672,0.312879249097553,0.5617097851774611,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,1000,5,Ridge,4,0.4175004268903997,0.3218568083917117,0.4666970054253176,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,1000,5,Ridge,5,0.3983216016360078,0.297936195360441,0.4658020390724676,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,1000,5,Random Forest,1,0.3789456311400009,0.2822781271663122,0.5910670717497326,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+California Housing,Parsimonious,1000,5,Random Forest,2,0.3636898311894479,0.2816884497271038,0.5566899100796323,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,1000,5,Random Forest,3,0.3255765253253497,0.2507427447970816,0.704941225601917,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,1000,5,Random Forest,4,0.3858024970811343,0.303781645718313,0.5446029184544658,"{'model__max_depth': None, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,1000,5,Random Forest,5,0.3477210766566856,0.2640067041493101,0.5929042783663132,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,1000,5,XGBoost,1,0.3762457890569087,0.2839867847712268,0.5968732943680486,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,1000,5,XGBoost,2,0.3559361803016959,0.2779257307802761,0.5753906329858081,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,1000,5,XGBoost,3,0.3378274100247305,0.260886171972134,0.6823183471446264,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,1000,5,XGBoost,4,0.3792164877100167,0.2947324011937725,0.5600183160886438,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,1000,5,XGBoost,5,0.3423604715449515,0.258748567392474,0.6053594219407412,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,1000,5,TabPFN,1,0.3513176806626029,0.2585060685133687,0.6485218859725952,{},Not applicable
+California Housing,Parsimonious,1000,5,TabPFN,2,0.3429638191940018,0.267300858462666,0.6057770412901087,{},Not applicable
+California Housing,Parsimonious,1000,5,TabPFN,3,0.3121872815286016,0.2406875805240277,0.7287106292114767,{},Not applicable
+California Housing,Parsimonious,1000,5,TabPFN,4,0.3642911110699698,0.279570887814826,0.5939707478717959,{},Not applicable
+California Housing,Parsimonious,1000,5,TabPFN,5,0.3268335877185843,0.2495987088756803,0.6403435365669017,{},Not applicable
+California Housing,Parsimonious,2500,5,OLS,1,0.4177260150343932,0.3022949514747748,0.4190208739791793,{},Not applicable
+California Housing,Parsimonious,2500,5,OLS,2,0.4181662651019313,0.320636883350812,0.4583591233844478,{},Not applicable
+California Housing,Parsimonious,2500,5,OLS,3,0.3929929824124403,0.2993530662937938,0.5150804254599486,{},Not applicable
+California Housing,Parsimonious,2500,5,OLS,4,0.4051175417163125,0.3109217041886344,0.497659381893896,{},Not applicable
+California Housing,Parsimonious,2500,5,OLS,5,0.4033108062748443,0.3147233518923285,0.536391415697973,{},Not applicable
+California Housing,Parsimonious,2500,5,Ridge,1,0.4159498565149416,0.3021085257705148,0.4239509820396888,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,2500,5,Ridge,2,0.4168156368773647,0.32088503484818,0.4618523465213919,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,2500,5,Ridge,3,0.3926664751258112,0.2999294707367217,0.5158858546134193,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,2500,5,Ridge,4,0.4059095397461299,0.312147581590771,0.4956933269266343,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,2500,5,Ridge,5,0.4034551496620915,0.3148475883006782,0.5360595088540683,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,2500,5,Random Forest,1,0.3378828260967769,0.2593927845711303,0.6198896291285958,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,2500,5,Random Forest,2,0.3588920036069827,0.2782695950485746,0.601029294606241,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+California Housing,Parsimonious,2500,5,Random Forest,3,0.3388050923189488,0.2613635186136327,0.63958738523835,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,2500,5,Random Forest,4,0.3471902068079625,0.2640731934523163,0.6310469274892181,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+California Housing,Parsimonious,2500,5,Random Forest,5,0.3593814827985624,0.2719542689278548,0.6318853139230637,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,2500,5,XGBoost,1,0.3389889095936387,0.2610081005368117,0.6173969190191182,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,2500,5,XGBoost,2,0.3581839072033204,0.2802345205425649,0.6026020854291222,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,2500,5,XGBoost,3,0.3361756031308763,0.2567854189803039,0.6451600493403062,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,2500,5,XGBoost,4,0.3575197696329067,0.2702985159054595,0.6087662414261252,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,2500,5,XGBoost,5,0.3583672440310002,0.2755025320108885,0.6339601528584864,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 2, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,2500,5,TabPFN,1,0.3310009244251606,0.2555496126289607,0.6352159033455456,{},Not applicable
+California Housing,Parsimonious,2500,5,TabPFN,2,0.3481567492611483,0.2692237140691416,0.6245405134295383,{},Not applicable
+California Housing,Parsimonious,2500,5,TabPFN,3,0.3188423294734892,0.2430217264689983,0.6808079458554648,{},Not applicable
+California Housing,Parsimonious,2500,5,TabPFN,4,0.3448438785727832,0.259206027394897,0.6360168824242953,{},Not applicable
+California Housing,Parsimonious,2500,5,TabPFN,5,0.3421588220833548,0.2599092386223949,0.6663222595529699,{},Not applicable
+California Housing,Parsimonious,5000,5,OLS,1,0.3950927670308699,0.2944538265056985,0.4825858165628542,{},Not applicable
+California Housing,Parsimonious,5000,5,OLS,2,0.40920246284326,0.3163761187134796,0.4977266070379568,{},Not applicable
+California Housing,Parsimonious,5000,5,OLS,3,0.4547164538032486,0.3294637378541863,0.3969182623671421,{},Not applicable
+California Housing,Parsimonious,5000,5,OLS,4,0.4005765038577383,0.3131336282432653,0.4900035408969656,{},Not applicable
+California Housing,Parsimonious,5000,5,OLS,5,0.3994966950192107,0.3063618177554433,0.506061638963549,{},Not applicable
+California Housing,Parsimonious,5000,5,Ridge,1,0.3944377976852224,0.2947048071628019,0.4842998926369158,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,5000,5,Ridge,2,0.4090198408918389,0.3168215938232191,0.4981748236904918,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,5000,5,Ridge,3,0.4538809975818922,0.3298372696505995,0.3991323257554844,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,5000,5,Ridge,4,0.4006029276592858,0.3131658862453442,0.4899362554243264,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,5000,5,Ridge,5,0.4039585530759952,0.3112823110143664,0.4949667281183605,{'model__alpha': 100},Not applicable
+California Housing,Parsimonious,5000,5,Random Forest,1,0.3452092351550079,0.2577736492573704,0.6049928267130238,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,5000,5,Random Forest,2,0.3524718438281016,0.2699092514620614,0.6273401921210155,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,5000,5,Random Forest,3,0.3682262967661335,0.274068621976597,0.6045200784094147,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+California Housing,Parsimonious,5000,5,Random Forest,4,0.3491195026706949,0.2704110805047043,0.6126135394865834,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,5000,5,Random Forest,5,0.3486168231024846,0.2642263073304602,0.6238655981137953,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,5000,5,XGBoost,1,0.3379294872189,0.253783586177139,0.6214769333893913,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,5000,5,XGBoost,2,0.3515328380560171,0.2697185140808641,0.6293231226730683,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 1.0}",Not applicable
+California Housing,Parsimonious,5000,5,XGBoost,3,0.369678772669805,0.2736223283365624,0.6013939683132925,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,5000,5,XGBoost,4,0.3510066476261297,0.2707368392788446,0.608414231026494,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,5000,5,XGBoost,5,0.346428236642441,0.2616933093721804,0.6285734527379188,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,5000,5,TabPFN,1,0.3324992654251729,0.2482117068394881,0.633544240657601,{},Not applicable
+California Housing,Parsimonious,5000,5,TabPFN,2,0.3408589649398953,0.2599882924108997,0.6514916910955395,{},Not applicable
+California Housing,Parsimonious,5000,5,TabPFN,3,0.3561979584456659,0.2658018422678889,0.6299352740265445,{},Not applicable
+California Housing,Parsimonious,5000,5,TabPFN,4,0.3459369008664095,0.2650117071052845,0.6196442395465058,{},Not applicable
+California Housing,Parsimonious,5000,5,TabPFN,5,0.3376393281100285,0.2525410200528572,0.647180622425356,{},Not applicable
+California Housing,Parsimonious,10000,5,OLS,1,0.406916341902839,0.3071474378344635,0.4912107940143185,{},Not applicable
+California Housing,Parsimonious,10000,5,OLS,2,0.4192273586962418,0.3109299963060483,0.4637329794548127,{},Not applicable
+California Housing,Parsimonious,10000,5,OLS,3,0.4102456838171271,0.3181650238141436,0.4788081279070383,{},Not applicable
+California Housing,Parsimonious,10000,5,OLS,4,0.3963214855644967,0.3027936250598124,0.5104270882847595,{},Not applicable
+California Housing,Parsimonious,10000,5,OLS,5,0.3962475904305216,0.307452311500419,0.4931919588518361,{},Not applicable
+California Housing,Parsimonious,10000,5,Ridge,1,0.4067069579525683,0.3072508175407922,0.4917342671416782,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,10000,5,Ridge,2,0.4192132515496821,0.3109488217251842,0.4637690699914214,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,10000,5,Ridge,3,0.4102569790307217,0.3181862427394961,0.4787794277656657,{'model__alpha': 1},Not applicable
+California Housing,Parsimonious,10000,5,Ridge,4,0.3969452005872285,0.3045209016864996,0.508884934917472,{'model__alpha': 100},Not applicable
+California Housing,Parsimonious,10000,5,Ridge,5,0.3964266661574357,0.3076960638586549,0.4927337729679325,{'model__alpha': 10},Not applicable
+California Housing,Parsimonious,10000,5,Random Forest,1,0.3541445494042657,0.26796766475127,0.6146203748964603,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,10000,5,Random Forest,2,0.3573374404731103,0.269502429994172,0.610382100762922,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,10000,5,Random Forest,3,0.3604849356952914,0.2733481852062044,0.5975760360328828,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,10000,5,Random Forest,4,0.3459685193156707,0.2628221887018735,0.6269257182533335,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 200}",Not applicable
+California Housing,Parsimonious,10000,5,Random Forest,5,0.3474464654789622,0.2667915151159151,0.6103398222149873,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+California Housing,Parsimonious,10000,5,XGBoost,1,0.3498082316442037,0.2629521773412946,0.6240001462986726,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,10000,5,XGBoost,2,0.3562098840325967,0.2693301457474917,0.6128370523257181,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,10000,5,XGBoost,3,0.3604364352464279,0.2748267178487268,0.5976843147872658,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 100, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,10000,5,XGBoost,4,0.3443508073894861,0.2611009404146345,0.6304064725301965,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,10000,5,XGBoost,5,0.3451668867908914,0.2658573546938714,0.6154361303197675,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Parsimonious,10000,5,TabPFN,1,0.3421516896558729,0.2563964569919498,0.6402796527821863,{},Not applicable
+California Housing,Parsimonious,10000,5,TabPFN,2,0.3478278148777921,0.2612482793053471,0.6308435400840255,{},Not applicable
+California Housing,Parsimonious,10000,5,TabPFN,3,0.3519381490627981,0.2649388064834736,0.6164320737775583,{},Not applicable
+California Housing,Parsimonious,10000,5,TabPFN,4,0.3383683165990081,0.2546984516646691,0.6431369957333338,{},Not applicable
+California Housing,Parsimonious,10000,5,TabPFN,5,0.340122235847193,0.2604638846863885,0.6265948710774896,{},Not applicable
+California Housing,Parsimonious,20640,5,OLS,1,0.4177423307097181,0.313467622962204,0.4600087425490481,{},Not applicable
+California Housing,Parsimonious,20640,5,OLS,2,0.408165513407623,0.3092841481059639,0.4876084688819095,{},Not applicable
+California Housing,Parsimonious,20640,5,OLS,3,0.4036050431274435,0.3102638114268916,0.4954932097087929,{},Not applicable
+California Housing,Parsimonious,20640,5,OLS,4,0.3998017643444027,0.3081875463862709,0.5023925083600838,{},Not applicable
+California Housing,Parsimonious,20640,5,OLS,5,0.4206664249893173,0.3176410474497333,0.4582368718907452,{},Not applicable
+California Housing,Extended,1000,5,OLS,1,0.3645622397223772,0.2838117836818307,0.6215211278195685,{},Not applicable
+California Housing,Extended,1000,5,OLS,2,0.3318715887103801,0.243182382172659,0.6308648105197865,{},Not applicable
+California Housing,Extended,1000,5,OLS,3,0.5312209859881459,0.2895544168661507,0.2144880189951712,{},Not applicable
+California Housing,Extended,1000,5,OLS,4,0.3413962207229817,0.2640834373041102,0.6434030758412628,{},Not applicable
+California Housing,Extended,1000,5,OLS,5,0.3378443308806678,0.2526892736317728,0.6157023061127465,{},Not applicable
+California Housing,Extended,1000,5,Ridge,1,0.3639877513239989,0.2831970753746099,0.6227130252769967,{'model__alpha': 1},Not applicable
+California Housing,Extended,1000,5,Ridge,2,0.3318717723790436,0.2431829276421675,0.6308644019365396,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,1000,5,Ridge,3,0.5301503026964836,0.28945177126588,0.2176512486762235,{'model__alpha': 1},Not applicable
+California Housing,Extended,1000,5,Ridge,4,0.3420489964410426,0.2647131301935605,0.6420380908555763,{'model__alpha': 1},Not applicable
+California Housing,Extended,1000,5,Ridge,5,0.3375657894318205,0.2523058666302496,0.6163357263008575,{'model__alpha': 1},Not applicable
+California Housing,Extended,1000,5,Random Forest,1,0.3146868568498735,0.2327286270330635,0.7179958608719516,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,1000,5,Random Forest,2,0.3030775316293775,0.2248650031476405,0.692140341972659,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+California Housing,Extended,1000,5,Random Forest,3,0.2804469645811654,0.2062243039711976,0.7810707174288992,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,1000,5,Random Forest,4,0.3194338502224816,0.2434667006245676,0.6878078009151471,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,1000,5,Random Forest,5,0.2877352765606204,0.2101687113435169,0.721246244689627,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,1000,5,XGBoost,1,0.2804450282820087,0.2021824353281929,0.7760279815046824,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,1000,5,XGBoost,2,0.2590001237945066,0.1945983973324736,0.7751746682860415,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,1000,5,XGBoost,3,0.2393232642387713,0.1783093024386436,0.8405692086294617,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,1000,5,XGBoost,4,0.283920569962237,0.2085214824800342,0.7533654636940764,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,1000,5,XGBoost,5,0.2523381105228096,0.1786512204434602,0.7856121344600142,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,1000,5,TabPFN,1,0.2231917577624429,0.1561029946474757,0.8581417563553374,{},Not applicable
+California Housing,Extended,1000,5,TabPFN,2,0.2293698056601883,0.1588333577709056,0.8236734164789661,{},Not applicable
+California Housing,Extended,1000,5,TabPFN,3,0.2348522689654663,0.1621715309851338,0.8464704817952111,{},Not applicable
+California Housing,Extended,1000,5,TabPFN,4,0.2393114593019149,0.16965734210388,0.8247785924478854,{},Not applicable
+California Housing,Extended,1000,5,TabPFN,5,0.2118346634619165,0.1469122703823117,0.8489124909414014,{},Not applicable
+California Housing,Extended,2500,5,OLS,1,0.3159787796153294,0.2369837796865629,0.6675752752992928,{},Not applicable
+California Housing,Extended,2500,5,OLS,2,0.3393029291456241,0.2570333907470638,0.643393986684312,{},Not applicable
+California Housing,Extended,2500,5,OLS,3,0.3404251539906531,0.2520375206418367,0.6361323801681086,{},Not applicable
+California Housing,Extended,2500,5,OLS,4,0.3747187378608256,0.2532682315236909,0.5702191905861886,{},Not applicable
+California Housing,Extended,2500,5,OLS,5,0.3350202518756392,0.2587889916414018,0.6801002701987475,{},Not applicable
+California Housing,Extended,2500,5,Ridge,1,0.3161292234766054,0.2370874766226962,0.6672586517278469,{'model__alpha': 1},Not applicable
+California Housing,Extended,2500,5,Ridge,2,0.3393029994201574,0.2570334213911502,0.6433938389677933,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,2500,5,Ridge,3,0.3402306391095165,0.2520453538684182,0.6365480806252186,{'model__alpha': 1},Not applicable
+California Housing,Extended,2500,5,Ridge,4,0.3747188167464629,0.2532683566853796,0.5702190096316051,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,2500,5,Ridge,5,0.3349922049139726,0.25885507865414,0.6801538301841169,{'model__alpha': 1},Not applicable
+California Housing,Extended,2500,5,Random Forest,1,0.2529145180318302,0.1896727548048314,0.7870267773298967,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,2500,5,Random Forest,2,0.2762681832202087,0.2078855137870653,0.7635849129661231,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,2500,5,Random Forest,3,0.2644414932790179,0.1944114118235592,0.7804369138200631,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,2500,5,Random Forest,4,0.2660529564954261,0.1944243705658498,0.7833431737509973,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,2500,5,Random Forest,5,0.2671949711077549,0.1971830441242477,0.7965169157872607,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,2500,5,XGBoost,1,0.2380042734108381,0.1782139712742973,0.8113976964269505,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,2500,5,XGBoost,2,0.24318668011517,0.1811106402988962,0.8168136908857009,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+California Housing,Extended,2500,5,XGBoost,3,0.2596952917054335,0.1889184347620554,0.7882476315675447,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,2500,5,XGBoost,4,0.2310514124553697,0.1719277724101194,0.8365994726454147,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,2500,5,XGBoost,5,0.2433450434446976,0.1780388255382237,0.8312216405339891,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+California Housing,Extended,2500,5,TabPFN,1,0.1955987767167055,0.1364463017726236,0.872617504809527,{},Not applicable
+California Housing,Extended,2500,5,TabPFN,2,0.2013389611968258,0.1413581457974697,0.874434858138894,{},Not applicable
+California Housing,Extended,2500,5,TabPFN,3,0.2162482022609372,0.1467689608966205,0.8531732667722931,{},Not applicable
+California Housing,Extended,2500,5,TabPFN,4,0.1967845247010368,0.1387297996842635,0.8814727843000429,{},Not applicable
+California Housing,Extended,2500,5,TabPFN,5,0.2068226647785943,0.1411640009308474,0.8780819492323007,{},Not applicable
+California Housing,Extended,5000,5,OLS,1,0.3182376845871223,0.234567546772743,0.6643061513270381,{},Not applicable
+California Housing,Extended,5000,5,OLS,2,0.3287082068770612,0.251834187563268,0.6758957026004265,{},Not applicable
+California Housing,Extended,5000,5,OLS,3,0.3469696138018147,0.2597652504316435,0.6488620864727455,{},Not applicable
+California Housing,Extended,5000,5,OLS,4,0.3586763863970271,0.2603896940351741,0.5911144258470218,{},Not applicable
+California Housing,Extended,5000,5,OLS,5,0.3302828452827575,0.245225762370267,0.6623875844520093,{},Not applicable
+California Housing,Extended,5000,5,Ridge,1,0.3182488734283014,0.2346128478262704,0.66428254575568,{'model__alpha': 1},Not applicable
+California Housing,Extended,5000,5,Ridge,2,0.3285437643599901,0.2520332287394546,0.6762199001351634,{'model__alpha': 10},Not applicable
+California Housing,Extended,5000,5,Ridge,3,0.3470085000204634,0.2598300834143489,0.6487833753102108,{'model__alpha': 1},Not applicable
+California Housing,Extended,5000,5,Ridge,4,0.3585126032732736,0.2606185382080446,0.59148776108256,{'model__alpha': 10},Not applicable
+California Housing,Extended,5000,5,Ridge,5,0.3302828374139271,0.2452258102292468,0.6623876005389169,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,5000,5,Random Forest,1,0.2500814905034873,0.1759572654841629,0.7926981062594876,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,5000,5,Random Forest,2,0.2512620295977354,0.1844647115499533,0.8106272778555117,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,5000,5,Random Forest,3,0.2680274571233165,0.1881044686993503,0.7904665272375757,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,5000,5,Random Forest,4,0.2432673472485197,0.1840628513270115,0.8119108014828149,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,5000,5,Random Forest,5,0.2462550619491464,0.1767668746276906,0.8123205561947279,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,5000,5,XGBoost,1,0.2354937910677463,0.1713340211632061,0.8161773199504112,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+California Housing,Extended,5000,5,XGBoost,2,0.2311946248881154,0.1716250572201899,0.8396683874227759,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,5000,5,XGBoost,3,0.2594969396597446,0.1785617838342329,0.8035919338031126,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,5000,5,XGBoost,4,0.2264652184368411,0.1727196732561688,0.8369956335015014,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,5000,5,XGBoost,5,0.2320395852307196,0.1674313446918225,0.8333633463186242,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,5000,5,TabPFN,1,0.1996351009931683,0.1267925433827093,0.8678966050122607,{},Not applicable
+California Housing,Extended,5000,5,TabPFN,2,0.1905798221263921,0.1315377117197696,0.8910524346503133,{},Not applicable
+California Housing,Extended,5000,5,TabPFN,3,0.2096626017799844,0.1352805678572709,0.871785607057693,{},Not applicable
+California Housing,Extended,5000,5,TabPFN,4,0.1791898677425679,0.1262615585860804,0.8979476252802507,{},Not applicable
+California Housing,Extended,5000,5,TabPFN,5,0.1907889480831048,0.1285790376246373,0.8873443956330413,{},Not applicable
+California Housing,Extended,10000,5,OLS,1,0.3474023802385346,0.2605524167908143,0.6291543361888123,{},Not applicable
+California Housing,Extended,10000,5,OLS,2,0.3489656804447809,0.2628871603805245,0.6284243115348704,{},Not applicable
+California Housing,Extended,10000,5,OLS,3,0.3561585284660208,0.2735642161244522,0.6071775591809861,{},Not applicable
+California Housing,Extended,10000,5,OLS,4,0.3452075769773106,0.2616665505801851,0.6285650339770632,{},Not applicable
+California Housing,Extended,10000,5,OLS,5,0.3464777527581008,0.2651250985153051,0.6125096100795897,{},Not applicable
+California Housing,Extended,10000,5,Ridge,1,0.347388827924821,0.2605525738138157,0.6291832693166868,{'model__alpha': 1},Not applicable
+California Housing,Extended,10000,5,Ridge,2,0.3489680708094886,0.262894770282033,0.628419221037416,{'model__alpha': 1},Not applicable
+California Housing,Extended,10000,5,Ridge,3,0.3561585371332583,0.273564238724637,0.6071775400620536,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,10000,5,Ridge,4,0.3452075708226838,0.2616665523405642,0.628565047221521,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,10000,5,Ridge,5,0.3464777575324937,0.2651251109252477,0.6125095994005123,{'model__alpha': 0.001},Not applicable
+California Housing,Extended,10000,5,Random Forest,1,0.2407337525388581,0.1660161346567447,0.8219255559418024,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,10000,5,Random Forest,2,0.2436127424237013,0.1738752581159698,0.8189152585816984,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,10000,5,Random Forest,3,0.2436700116831892,0.1729770046884994,0.8161287783817072,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,10000,5,Random Forest,4,0.2453521821098853,0.1716420777056744,0.812370122287477,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}",Not applicable
+California Housing,Extended,10000,5,Random Forest,5,0.2333912439684762,0.1662683408675117,0.8241755182972956,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+California Housing,Extended,10000,5,XGBoost,1,0.2382990844132034,0.1695333001434063,0.8255092644733353,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+California Housing,Extended,10000,5,XGBoost,2,0.2399541174403599,0.1729002164629464,0.8243135494489843,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,10000,5,XGBoost,3,0.235394259344112,0.1695609991465974,0.8284063043320096,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,10000,5,XGBoost,4,0.2390547013990191,0.1696756896789829,0.8218783439476536,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+California Housing,Extended,10000,5,XGBoost,5,0.2300149013437593,0.167104698730958,0.8292258340143716,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+California Housing,Extended,10000,5,TabPFN,1,0.190519325230581,0.1213304554549404,0.8884664064212042,{},Not applicable
+California Housing,Extended,10000,5,TabPFN,2,0.1959557904955383,0.1274751882220741,0.8828349563851595,{},Not applicable
+California Housing,Extended,10000,5,TabPFN,3,0.1860564974878907,0.1223239490085632,0.892798891671598,{},Not applicable
+California Housing,Extended,10000,5,TabPFN,4,0.1933664442800378,0.1257655475616252,0.8834574897288352,{},Not applicable
+California Housing,Extended,10000,5,TabPFN,5,0.1900180542381484,0.1260293844355318,0.8834533052208791,{},Not applicable
+California Housing,Extended,20640,5,OLS,1,0.3557603467268948,0.2702228487983945,0.6083619882836692,{},Not applicable
+California Housing,Extended,20640,5,OLS,2,0.3512241964050155,0.2669141209775105,0.6205992520086798,{},Not applicable
+California Housing,Extended,20640,5,OLS,3,0.3520967513745864,0.2683201924928879,0.6160471605906932,{},Not applicable
+California Housing,Extended,20640,5,OLS,4,0.3455203773240312,0.2634528294393215,0.6283408510402906,{},Not applicable
+California Housing,Extended,20640,5,OLS,5,0.3720565426702485,0.2757672064108609,0.5762090923105105,{},Not applicable
