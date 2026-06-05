@@ -17,7 +17,7 @@ from sklearn.base import clone
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
@@ -162,6 +162,7 @@ extended_category_preprocessor = ColumnTransformer(
 ridge_param_grid = {"model__alpha": [0.001, 0.01, 0.1, 1, 10, 100]}
 
 standard_models = [
+    ("OLS", LinearRegression(), None),
     ("Ridge", Ridge(), ridge_param_grid),
     (
         "Random Forest",
@@ -394,7 +395,7 @@ full_results = full_results[
 ]
 
 combined_summary = pd.concat([summary_export, full_results], ignore_index=True)
-model_order = ["Ridge", "Random Forest", "XGBoost", "TabPFN"]
+model_order = ["OLS", "Ridge", "Random Forest", "XGBoost", "TabPFN"]
 combined_summary["model"] = pd.Categorical(
     combined_summary["model"],
     categories=model_order,
@@ -416,16 +417,16 @@ display(combined_summary)
 # %% [markdown]
 # ## Verified RMSE Summary
 #
-# | Specification | Sample size | Ridge | Random Forest | XGBoost | TabPFN |
-# |---|---:|---:|---:|---:|---:|
-# | Parsimonious | 1,000 | 0.368096 | 0.365157 | 0.353646 | **0.345251** |
-# | Parsimonious | 2,500 | 0.361837 | 0.354256 | 0.347143 | **0.336494** |
-# | Parsimonious | 5,000 | 0.357988 | 0.345835 | 0.340159 | **0.334469** |
-# | Parsimonious | 21,613 | 0.356760 | 0.336722 | 0.333340 | **0.326966** |
-# | Extended | 1,000 | 0.207583 | 0.223803 | 0.205554 | **0.184276** |
-# | Extended | 2,500 | 0.191946 | 0.199839 | 0.181544 | **0.167711** |
-# | Extended | 5,000 | 0.188180 | 0.192086 | 0.172947 | **0.161251** |
-# | Extended | 21,613 | 0.188067 | 0.176938 | 0.167961 | **0.154373** |
+# | Specification | Sample size | OLS | Ridge | Random Forest | XGBoost | TabPFN |
+# |---|---:|---:|---:|---:|---:|---:|
+# | Parsimonious | 1,000 | 0.368055 | 0.368096 | 0.365157 | 0.353646 | **0.345251** |
+# | Parsimonious | 2,500 | 0.361805 | 0.361837 | 0.354256 | 0.347143 | **0.336494** |
+# | Parsimonious | 5,000 | 0.357963 | 0.357988 | 0.345835 | 0.340159 | **0.334469** |
+# | Parsimonious | 21,613 | 0.356761 | 0.356760 | 0.336722 | 0.333340 | **0.326966** |
+# | Extended | 1,000 | 0.208657 | 0.207583 | 0.223803 | 0.205554 | **0.184276** |
+# | Extended | 2,500 | 0.191899 | 0.191946 | 0.199839 | 0.181544 | **0.167711** |
+# | Extended | 5,000 | 0.188165 | 0.188180 | 0.192086 | 0.172947 | **0.161251** |
+# | Extended | 21,613 | 0.188069 | 0.188067 | 0.176938 | 0.167961 | **0.154373** |
 #
 # The full-dataset rows are loaded from the already-computed final King County
 # comparison. The extended TabPFN rows use category-coded `zipcode`.

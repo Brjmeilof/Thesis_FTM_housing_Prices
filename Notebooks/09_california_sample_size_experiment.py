@@ -13,7 +13,7 @@ from sklearn.base import clone
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
@@ -107,6 +107,7 @@ specifications = {
 ridge_param_grid = {"model__alpha": [0.001, 0.01, 0.1, 1, 10, 100]}
 
 models = [
+    ("OLS", LinearRegression(), None),
     ("Ridge", Ridge(), ridge_param_grid),
     (
         "Random Forest",
@@ -264,7 +265,7 @@ summary_export.columns = [
 
 full_results = pd.read_csv("../Results/california_summary.csv")
 combined_summary = pd.concat([summary_export, full_results], ignore_index=True)
-model_order = ["Ridge", "Random Forest", "XGBoost", "TabPFN"]
+model_order = ["OLS", "Ridge", "Random Forest", "XGBoost", "TabPFN"]
 combined_summary["model"] = pd.Categorical(
     combined_summary["model"],
     categories=model_order,
@@ -286,18 +287,18 @@ display(combined_summary)
 # %% [markdown]
 # ## Verified RMSE Summary
 #
-# | Specification | Sample size | Ridge | Random Forest | XGBoost | TabPFN |
-# |---|---:|---:|---:|---:|---:|
-# | Parsimonious | 1,000 | 0.408015 | 0.360347 | 0.358317 | **0.339519** |
-# | Parsimonious | 2,500 | 0.406959 | 0.348430 | 0.349847 | **0.337001** |
-# | Parsimonious | 5,000 | 0.412380 | 0.352729 | 0.351315 | **0.342626** |
-# | Parsimonious | 10,000 | 0.405910 | 0.353076 | 0.351194 | **0.344082** |
-# | Parsimonious | 20,640 | 0.410091 | 0.352557 | 0.351300 | **0.345741** |
-# | Extended | 1,000 | 0.381125 | 0.301076 | 0.263005 | **0.227712** |
-# | Extended | 2,500 | 0.341075 | 0.265374 | 0.243057 | **0.203359** |
-# | Extended | 5,000 | 0.336519 | 0.251779 | 0.236938 | **0.193971** |
-# | Extended | 10,000 | 0.348840 | 0.241352 | 0.236543 | **0.191183** |
-# | Extended | 20,640 | 0.355439 | 0.231832 | 0.233187 | **0.187873** |
+# | Specification | Sample size | OLS | Ridge | Random Forest | XGBoost | TabPFN |
+# |---|---:|---:|---:|---:|---:|---:|
+# | Parsimonious | 1,000 | 0.408140 | 0.408015 | 0.360347 | 0.358317 | **0.339519** |
+# | Parsimonious | 2,500 | 0.407463 | 0.406959 | 0.348430 | 0.349847 | **0.337001** |
+# | Parsimonious | 5,000 | 0.411817 | 0.412380 | 0.352729 | 0.351315 | **0.342626** |
+# | Parsimonious | 10,000 | 0.405792 | 0.405910 | 0.353076 | 0.351194 | **0.344082** |
+# | Parsimonious | 20,640 | 0.409996 | 0.410091 | 0.352557 | 0.351300 | **0.345741** |
+# | Extended | 1,000 | 0.381379 | 0.381125 | 0.301076 | 0.263005 | **0.227712** |
+# | Extended | 2,500 | 0.341089 | 0.341075 | 0.265374 | 0.243057 | **0.203359** |
+# | Extended | 5,000 | 0.336575 | 0.336519 | 0.251779 | 0.236938 | **0.193971** |
+# | Extended | 10,000 | 0.348842 | 0.348840 | 0.241352 | 0.236543 | **0.191183** |
+# | Extended | 20,640 | 0.355332 | 0.355439 | 0.231832 | 0.233187 | **0.187873** |
 #
 # The full-dataset rows are loaded from the already-computed California full
 # experiment. The `10,000` row is included because the requested nesting logic
