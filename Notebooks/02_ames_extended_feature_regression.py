@@ -13,11 +13,12 @@ from sklearn.base import clone
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
 from tabpfn import TabPFNRegressor
 from xgboost import XGBRegressor
 
@@ -113,6 +114,44 @@ preprocessor = ColumnTransformer(
     verbose_feature_names_out=False,
 )
 
+ridge_preprocessor = ColumnTransformer(
+    transformers=[
+        (
+            "numeric",
+            Pipeline(
+                steps=[
+                    ("imputer", SimpleImputer(strategy="median")),
+                    ("scaler", StandardScaler()),
+                ]
+            ),
+            numeric_features,
+        ),
+        (
+            "categorical",
+            Pipeline(
+                steps=[
+                    (
+                        "imputer",
+                        SimpleImputer(
+                            strategy="constant",
+                            fill_value="Missing",
+                        ),
+                    ),
+                    (
+                        "onehot",
+                        OneHotEncoder(
+                            handle_unknown="ignore",
+                            sparse_output=False,
+                        ),
+                    ),
+                ]
+            ),
+            categorical_features,
+        ),
+    ],
+    verbose_feature_names_out=False,
+)
+
 preview_preprocessor = clone(preprocessor).fit(X)
 print(f"Features after preprocessing: {len(preview_preprocessor.get_feature_names_out())}")
 
@@ -120,8 +159,8 @@ print(f"Features after preprocessing: {len(preview_preprocessor.get_feature_name
 # ## Nested cross-validation
 #
 # The outer loop uses 5 folds to estimate out-of-sample performance. Random
-# Forest and XGBoost are tuned using a 3-fold grid search within each outer
-# training fold. OLS and TabPFN are not tuned.
+# Forest, XGBoost, and Ridge are tuned using a 3-fold grid search within each
+# outer training fold. OLS and TabPFN are not tuned.
 
 # %%
 outer_cv = KFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
@@ -137,9 +176,11 @@ def evaluate_nested_cv(model_name, estimator, param_grid=None):
         y_train_cv = y.iloc[train_idx]
         y_test_cv = y.iloc[test_idx]
 
+        active_preprocessor = ridge_preprocessor if model_name == "Ridge" else preprocessor
+
         pipeline = Pipeline(
             steps=[
-                ("preprocessor", clone(preprocessor)),
+                ("preprocessor", clone(active_preprocessor)),
                 ("model", clone(estimator)),
             ]
         )
@@ -177,6 +218,13 @@ def evaluate_nested_cv(model_name, estimator, param_grid=None):
 
 models = [
     ("OLS", LinearRegression(), None),
+    (
+        "Ridge",
+        Ridge(),
+        {
+            "model__alpha": [0.001, 0.01, 0.1, 1, 10, 100],
+        },
+    ),
     (
         "Random Forest",
         RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=1),
@@ -241,4 +289,5 @@ display(cv_results)
 # | TabPFN | 0.119426 | 0.016591 | 0.077258 | 0.003968 | 0.912864 | 0.023524 |
 # | XGBoost | 0.129579 | 0.013063 | 0.085851 | 0.003375 | 0.898162 | 0.019673 |
 # | Random Forest | 0.138895 | 0.012219 | 0.093178 | 0.004301 | 0.883225 | 0.019251 |
+# | Ridge | 0.140814 | 0.023726 | 0.091521 | 0.001972 | 0.878131 | 0.040159 |
 # | OLS | 0.140997 | 0.023014 | 0.092164 | 0.001338 | 0.877946 | 0.038979 |

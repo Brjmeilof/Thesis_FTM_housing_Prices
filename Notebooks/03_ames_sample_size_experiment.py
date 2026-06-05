@@ -13,11 +13,12 @@ from sklearn.base import clone
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
 from tabpfn import TabPFNRegressor
 from xgboost import XGBRegressor
 
@@ -77,6 +78,22 @@ parsimonious_preprocessor = ColumnTransformer(
     verbose_feature_names_out=False,
 )
 
+parsimonious_ridge_preprocessor = ColumnTransformer(
+    [
+        (
+            "numeric",
+            Pipeline(
+                [
+                    ("imputer", SimpleImputer(strategy="median")),
+                    ("scaler", StandardScaler()),
+                ]
+            ),
+            parsimonious_features,
+        )
+    ],
+    verbose_feature_names_out=False,
+)
+
 extended_preprocessor = ColumnTransformer(
     [
         (
@@ -104,9 +121,46 @@ extended_preprocessor = ColumnTransformer(
     verbose_feature_names_out=False,
 )
 
+extended_ridge_preprocessor = ColumnTransformer(
+    [
+        (
+            "numeric",
+            Pipeline(
+                [
+                    ("imputer", SimpleImputer(strategy="median")),
+                    ("scaler", StandardScaler()),
+                ]
+            ),
+            extended_numeric_features,
+        ),
+        (
+            "categorical",
+            Pipeline(
+                [
+                    (
+                        "imputer",
+                        SimpleImputer(strategy="constant", fill_value="Missing"),
+                    ),
+                    (
+                        "onehot",
+                        OneHotEncoder(handle_unknown="ignore", sparse_output=False),
+                    ),
+                ]
+            ),
+            extended_categorical_features,
+        ),
+    ],
+    verbose_feature_names_out=False,
+)
+
 specifications = {
     "Parsimonious": (parsimonious_features, parsimonious_preprocessor),
     "Extended": (extended_features, extended_preprocessor),
+}
+
+ridge_preprocessors = {
+    "Parsimonious": parsimonious_ridge_preprocessor,
+    "Extended": extended_ridge_preprocessor,
 }
 
 # %% [markdown]
@@ -123,6 +177,13 @@ inner_cv = KFold(n_splits=3, shuffle=True, random_state=RANDOM_STATE)
 
 models = [
     ("OLS", LinearRegression(), None),
+    (
+        "Ridge",
+        Ridge(),
+        {
+            "model__alpha": [0.001, 0.01, 0.1, 1, 10, 100],
+        },
+    ),
     (
         "Random Forest",
         RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=1),
@@ -173,9 +234,15 @@ def evaluate_sample(specification, features, preprocessor, sample_size):
             y_train = y.iloc[train_idx]
             y_test = y.iloc[test_idx]
 
+            active_preprocessor = (
+                ridge_preprocessors[specification]
+                if model_name == "Ridge"
+                else preprocessor
+            )
+
             pipeline = Pipeline(
                 [
-                    ("preprocessor", clone(preprocessor)),
+                    ("preprocessor", clone(active_preprocessor)),
                     ("model", clone(estimator)),
                 ]
             )
@@ -252,38 +319,24 @@ sample_summary_export.columns = [
 ]
 sample_summary_export.to_csv("../Results/ames_sample_size_summary.csv", index=False)
 
-# %% [markdown]
-# ## Verified 5-fold sample-size results
-#
-# | Specification | Sample size | Model | Mean RMSE | Mean MAE | Mean R2 |
-# |---|---:|---|---:|---:|---:|
-# | Parsimonious | 1,000 | OLS | 0.2361 | 0.1639 | 0.6610 |
-# | Parsimonious | 1,000 | Random Forest | 0.2270 | 0.1552 | 0.6893 |
-# | Parsimonious | 1,000 | XGBoost | 0.2223 | 0.1560 | 0.7026 |
-# | Parsimonious | 1,000 | TabPFN | **0.2085** | **0.1415** | **0.7355** |
-# | Parsimonious | 2,000 | OLS | 0.2400 | 0.1664 | 0.6475 |
-# | Parsimonious | 2,000 | Random Forest | 0.2176 | 0.1505 | 0.7107 |
-# | Parsimonious | 2,000 | XGBoost | 0.2159 | 0.1509 | 0.7151 |
-# | Parsimonious | 2,000 | TabPFN | **0.2052** | **0.1409** | **0.7429** |
-# | Extended | 1,000 | OLS | 0.1520 | 0.1006 | 0.8555 |
-# | Extended | 1,000 | Random Forest | 0.1619 | 0.1063 | 0.8418 |
-# | Extended | 1,000 | XGBoost | 0.1437 | 0.0949 | 0.8739 |
-# | Extended | 1,000 | TabPFN | **0.1312** | **0.0833** | **0.8924** |
-# | Extended | 2,000 | OLS | 0.1527 | 0.0980 | 0.8564 |
-# | Extended | 2,000 | Random Forest | 0.1504 | 0.0993 | 0.8614 |
-# | Extended | 2,000 | XGBoost | 0.1374 | 0.0901 | 0.8847 |
-# | Extended | 2,000 | TabPFN | **0.1285** | **0.0817** | **0.8991** |
-# | Parsimonious | 2,930 | OLS | 0.2375 | 0.1668 | 0.6585 |
-# | Parsimonious | 2,930 | Random Forest | 0.2115 | 0.1480 | 0.7301 |
-# | Parsimonious | 2,930 | XGBoost | 0.2095 | 0.1490 | 0.7352 |
-# | Parsimonious | 2,930 | TabPFN | **0.2020** | **0.1400** | **0.7534** |
-# | Extended | 2,930 | OLS | 0.1410 | 0.0922 | 0.8779 |
-# | Extended | 2,930 | Random Forest | 0.1389 | 0.0932 | 0.8832 |
-# | Extended | 2,930 | XGBoost | 0.1296 | 0.0859 | 0.8982 |
-# | Extended | 2,930 | TabPFN | **0.1194** | **0.0773** | **0.9129** |
-
-# %% [markdown]
+# %%
 sample_summary_export["result_source"] = "5-fold sample-size experiment"
 combined_summary = sample_summary_export.copy()
 combined_summary.to_csv("../Results/ames_sample_size_combined_summary.csv", index=False)
 display(combined_summary)
+
+# %% [markdown]
+# ## Verified RMSE summary including Ridge
+#
+# Ridge was added after the original Ames sample-size run and tuned with a
+# 3-fold inner grid search over `alpha = [0.001, 0.01, 0.1, 1, 10, 100]`.
+# Its rows are included in the saved CSV files:
+#
+# | Specification | Sample size | OLS | Ridge | Random Forest | XGBoost | TabPFN |
+# |---|---:|---:|---:|---:|---:|---:|
+# | Parsimonious | 1,000 | 0.236075 | 0.236194 | 0.226967 | 0.222343 | **0.208530** |
+# | Parsimonious | 2,000 | 0.240026 | 0.239977 | 0.217613 | 0.215926 | **0.205178** |
+# | Parsimonious | 2,930 | 0.237455 | 0.237450 | 0.211452 | 0.209523 | **0.201965** |
+# | Extended | 1,000 | 0.151978 | 0.149649 | 0.161853 | 0.143656 | **0.131240** |
+# | Extended | 2,000 | 0.152694 | 0.153621 | 0.150353 | 0.137431 | **0.128497** |
+# | Extended | 2,930 | 0.140997 | 0.140814 | 0.138895 | 0.129579 | **0.119426** |

@@ -1,8 +1,9 @@
 # %% [markdown]
 # # Ames Housing: parsimonious feature specification
 #
-# This analysis compares OLS, Random Forest, XGBoost, and TabPFN using six core
-# structural housing variables. The outer cross-validation loop uses five folds.
+# This analysis compares OLS, Ridge, Random Forest, XGBoost, and TabPFN using
+# six core structural housing variables. The outer cross-validation loop uses
+# five folds.
 
 # %%
 import numpy as np
@@ -11,10 +12,11 @@ from IPython.display import display
 from sklearn.base import clone
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from tabpfn import TabPFNRegressor
 from xgboost import XGBRegressor
 
@@ -60,9 +62,13 @@ def evaluate_nested_cv(model_name, estimator, param_grid=None):
         y_train_cv = y.iloc[train_idx]
         y_test_cv = y.iloc[test_idx]
 
+        preprocessing_steps = [("imputer", SimpleImputer(strategy="median"))]
+        if model_name == "Ridge":
+            preprocessing_steps.append(("scaler", StandardScaler()))
+
         pipeline = Pipeline(
             steps=[
-                ("imputer", SimpleImputer(strategy="median")),
+                *preprocessing_steps,
                 ("model", clone(estimator)),
             ]
         )
@@ -100,6 +106,13 @@ def evaluate_nested_cv(model_name, estimator, param_grid=None):
 
 models = [
     ("OLS", LinearRegression(), None),
+    (
+        "Ridge",
+        Ridge(),
+        {
+            "model__alpha": [0.001, 0.01, 0.1, 1, 10, 100],
+        },
+    ),
     (
         "Random Forest",
         RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=1),
@@ -164,4 +177,5 @@ display(cv_results)
 # | TabPFN | 0.201965 | 0.016294 | 0.139957 | 0.006172 | 0.753402 | 0.036504 |
 # | XGBoost | 0.209523 | 0.011986 | 0.148970 | 0.005775 | 0.735212 | 0.026364 |
 # | Random Forest | 0.211452 | 0.013984 | 0.148038 | 0.005996 | 0.730115 | 0.032013 |
+# | Ridge | 0.237450 | 0.022548 | 0.166744 | 0.009041 | 0.658552 | 0.060561 |
 # | OLS | 0.237455 | 0.022729 | 0.166787 | 0.009069 | 0.658501 | 0.061105 |
