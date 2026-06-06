@@ -26,11 +26,6 @@ DATASETS = {
     "California Housing": "california",
 }
 
-TITLE_LABELS = {
-    "Parsimonious": "Baseline",
-    "Extended": "Extended",
-}
-
 MODEL_ORDER = ["OLS", "Random Forest", "XGBoost", "TabPFN"]
 
 
@@ -75,9 +70,6 @@ def plot_dataset_specification(dataset, specification):
             label=model,
         )
 
-    ax.set_title(
-        f"{dataset} {TITLE_LABELS[specification]}: R-squared by Sample Size"
-    )
     ax.set_xlabel("Sample size")
     ax.set_ylabel("R-squared")
     ax.set_xticks(sorted(data["sample_size"].unique()))
@@ -100,6 +92,6 @@ def plot_dataset_specification(dataset, specification):
 
 # %%
 for dataset in DATASETS:
-    for specification in TITLE_LABELS:
+    for specification in ["Parsimonious", "Extended"]:
         path = plot_dataset_specification(dataset, specification)
         print(f"Saved {path}")

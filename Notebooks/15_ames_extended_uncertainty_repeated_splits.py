@@ -437,7 +437,6 @@ axes[1].set_xticks(x)
 axes[1].set_xticklabels(model_order, rotation=20)
 axes[1].set_ylabel("Mean interval width")
 
-fig.suptitle("Ames Extended Predictive Uncertainty Across Five Splits")
 fig.tight_layout()
 fig.savefig(FIGURE_PATH, bbox_inches="tight")
 plt.close(fig)
