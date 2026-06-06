@@ -119,43 +119,93 @@ King County,Extended,5000,5,TabPFN,2,0.1639839392499374,0.1143369557488889,0.900
 King County,Extended,5000,5,TabPFN,3,0.1464332121727215,0.1075177573362031,0.9206274204228482,{},Category-coded
 King County,Extended,5000,5,TabPFN,4,0.1695361675604305,0.1164623438786614,0.8919057244226059,{},Category-coded
 King County,Extended,5000,5,TabPFN,5,0.1645358597380867,0.1159115635172993,0.9102543340465724,{},Category-coded
-King County,Parsimonious,1000,5,OLS,1,0.39287231025903385,0.3028053874291349,0.5886756274568617,{},Not applicable
+King County,Parsimonious,1000,5,OLS,1,0.3928723102590338,0.3028053874291349,0.5886756274568617,{},Not applicable
 King County,Parsimonious,1000,5,OLS,2,0.3543338207115496,0.2876906078776466,0.4782898870201112,{},Not applicable
-King County,Parsimonious,1000,5,OLS,3,0.34125601565528574,0.2697735430345252,0.5853249390790092,{},Not applicable
-King County,Parsimonious,1000,5,OLS,4,0.3823712465739435,0.30949865695570977,0.5514698880620181,{},Not applicable
-King County,Parsimonious,1000,5,OLS,5,0.3694440134115385,0.29699359842918177,0.5014529095544857,{},Not applicable
-King County,Extended,1000,5,OLS,1,0.20456722282042447,0.15178555772583488,0.8884797585530517,{},One-hot encoded
-King County,Extended,1000,5,OLS,2,0.21030002029783437,0.15241661767448936,0.8162265915957575,{},One-hot encoded
-King County,Extended,1000,5,OLS,3,0.21851571965005534,0.15597465306228675,0.829975050272921,{},One-hot encoded
-King County,Extended,1000,5,OLS,4,0.21706139393995053,0.15426574887267067,0.8554605738590055,{},One-hot encoded
-King County,Extended,1000,5,OLS,5,0.19284025958446122,0.1447309735269376,0.8641672998636907,{},One-hot encoded
+King County,Parsimonious,1000,5,OLS,3,0.3412560156552857,0.2697735430345252,0.5853249390790092,{},Not applicable
+King County,Parsimonious,1000,5,OLS,4,0.3823712465739435,0.3094986569557097,0.5514698880620181,{},Not applicable
+King County,Parsimonious,1000,5,OLS,5,0.3694440134115385,0.2969935984291817,0.5014529095544857,{},Not applicable
+King County,Extended,1000,5,OLS,1,0.2045672228204244,0.1517855577258348,0.8884797585530517,{},One-hot encoded
+King County,Extended,1000,5,OLS,2,0.2103000202978343,0.1524166176744893,0.8162265915957575,{},One-hot encoded
+King County,Extended,1000,5,OLS,3,0.2185157196500553,0.1559746530622867,0.829975050272921,{},One-hot encoded
+King County,Extended,1000,5,OLS,4,0.2170613939399505,0.1542657488726706,0.8554605738590055,{},One-hot encoded
+King County,Extended,1000,5,OLS,5,0.1928402595844612,0.1447309735269376,0.8641672998636907,{},One-hot encoded
 King County,Parsimonious,2500,5,OLS,1,0.3738232740550197,0.2995057542572218,0.510534688747014,{},Not applicable
-King County,Parsimonious,2500,5,OLS,2,0.3724135299375303,0.29121490654615717,0.5691916460698008,{},Not applicable
-King County,Parsimonious,2500,5,OLS,3,0.3556855184049957,0.28622034846718725,0.516630524343525,{},Not applicable
+King County,Parsimonious,2500,5,OLS,2,0.3724135299375303,0.2912149065461571,0.5691916460698008,{},Not applicable
+King County,Parsimonious,2500,5,OLS,3,0.3556855184049957,0.2862203484671872,0.516630524343525,{},Not applicable
 King County,Parsimonious,2500,5,OLS,4,0.3577027041374827,0.29611432281885,0.5752522841547102,{},Not applicable
-King County,Parsimonious,2500,5,OLS,5,0.3493994417413993,0.27888697598676787,0.5678776003143374,{},Not applicable
-King County,Extended,2500,5,OLS,1,0.20297270918101798,0.1521907048254697,0.8557005945139615,{},One-hot encoded
-King County,Extended,2500,5,OLS,2,0.1980316399467605,0.14001718421846113,0.8781845474948743,{},One-hot encoded
-King County,Extended,2500,5,OLS,3,0.17687257744235743,0.12986738763113503,0.8804724923356289,{},One-hot encoded
-King County,Extended,2500,5,OLS,4,0.19447236098586526,0.14211364376983407,0.8744541449204044,{},One-hot encoded
-King County,Extended,2500,5,OLS,5,0.1871464510377939,0.14211859524048645,0.8760274434708756,{},One-hot encoded
-King County,Parsimonious,5000,5,OLS,1,0.36750829316583267,0.2945540129495855,0.5360982220455394,{},Not applicable
-King County,Parsimonious,5000,5,OLS,2,0.35552334274754377,0.2857407298686762,0.5307314587259865,{},Not applicable
-King County,Parsimonious,5000,5,OLS,3,0.3412315268396136,0.27758672178281596,0.5689877483123837,{},Not applicable
-King County,Parsimonious,5000,5,OLS,4,0.36188518378986173,0.2881447237380569,0.5074848686470289,{},Not applicable
-King County,Parsimonious,5000,5,OLS,5,0.3636679344273118,0.29065843711611555,0.5615678688277939,{},Not applicable
-King County,Extended,5000,5,OLS,1,0.18695634388938978,0.1378270593447379,0.8799472363018025,{},One-hot encoded
-King County,Extended,5000,5,OLS,2,0.19044725751707628,0.14003705514833314,0.8653412291571816,{},One-hot encoded
+King County,Parsimonious,2500,5,OLS,5,0.3493994417413993,0.2788869759867678,0.5678776003143374,{},Not applicable
+King County,Extended,2500,5,OLS,1,0.2029727091810179,0.1521907048254697,0.8557005945139615,{},One-hot encoded
+King County,Extended,2500,5,OLS,2,0.1980316399467605,0.1400171842184611,0.8781845474948743,{},One-hot encoded
+King County,Extended,2500,5,OLS,3,0.1768725774423574,0.129867387631135,0.8804724923356289,{},One-hot encoded
+King County,Extended,2500,5,OLS,4,0.1944723609858652,0.142113643769834,0.8744541449204044,{},One-hot encoded
+King County,Extended,2500,5,OLS,5,0.1871464510377939,0.1421185952404864,0.8760274434708756,{},One-hot encoded
+King County,Parsimonious,5000,5,OLS,1,0.3675082931658326,0.2945540129495855,0.5360982220455394,{},Not applicable
+King County,Parsimonious,5000,5,OLS,2,0.3555233427475437,0.2857407298686762,0.5307314587259865,{},Not applicable
+King County,Parsimonious,5000,5,OLS,3,0.3412315268396136,0.2775867217828159,0.5689877483123837,{},Not applicable
+King County,Parsimonious,5000,5,OLS,4,0.3618851837898617,0.2881447237380569,0.5074848686470289,{},Not applicable
+King County,Parsimonious,5000,5,OLS,5,0.3636679344273118,0.2906584371161155,0.5615678688277939,{},Not applicable
+King County,Extended,5000,5,OLS,1,0.1869563438893897,0.1378270593447379,0.8799472363018025,{},One-hot encoded
+King County,Extended,5000,5,OLS,2,0.1904472575170762,0.1400370551483331,0.8653412291571816,{},One-hot encoded
 King County,Extended,5000,5,OLS,3,0.178437661527199,0.134363872631831,0.8821405628767375,{},One-hot encoded
-King County,Extended,5000,5,OLS,4,0.19385895948520374,0.1415760286219262,0.8586649987535289,{},One-hot encoded
-King County,Extended,5000,5,OLS,5,0.19112259436905815,0.1391432863041228,0.8789077304335602,{},One-hot encoded
-King County,Parsimonious,21613,5,OLS,1,0.3560929799084882,0.28375001866196825,0.5512964261611135,{},Not applicable
-King County,Parsimonious,21613,5,OLS,2,0.3536140470162607,0.28510325594763153,0.5402853429709132,{},Not applicable
-King County,Parsimonious,21613,5,OLS,3,0.36585733503048434,0.2899108751910513,0.5196676187670533,{},Not applicable
-King County,Parsimonious,21613,5,OLS,4,0.3525493892251632,0.28341369382133264,0.5543297583808302,{},Not applicable
+King County,Extended,5000,5,OLS,4,0.1938589594852037,0.1415760286219262,0.8586649987535289,{},One-hot encoded
+King County,Extended,5000,5,OLS,5,0.1911225943690581,0.1391432863041228,0.8789077304335602,{},One-hot encoded
+King County,Parsimonious,21613,5,OLS,1,0.3560929799084882,0.2837500186619682,0.5512964261611135,{},Not applicable
+King County,Parsimonious,21613,5,OLS,2,0.3536140470162607,0.2851032559476315,0.5402853429709132,{},Not applicable
+King County,Parsimonious,21613,5,OLS,3,0.3658573350304843,0.2899108751910513,0.5196676187670533,{},Not applicable
+King County,Parsimonious,21613,5,OLS,4,0.3525493892251632,0.2834136938213326,0.5543297583808302,{},Not applicable
 King County,Parsimonious,21613,5,OLS,5,0.3556894424130861,0.2851303016539042,0.5390154472265904,{},Not applicable
-King County,Extended,21613,5,OLS,1,0.18840179872536078,0.138347394364581,0.8743961954939228,{},One-hot encoded
-King County,Extended,21613,5,OLS,2,0.18615532261683942,0.13708815639899427,0.8725968254315686,{},One-hot encoded
-King County,Extended,21613,5,OLS,3,0.1887343669075755,0.13908699331200283,0.8721736731557775,{},One-hot encoded
-King County,Extended,21613,5,OLS,4,0.18808581764376106,0.13720911172178404,0.8731513639447622,{},One-hot encoded
-King County,Extended,21613,5,OLS,5,0.18896691073987415,0.13766994811110564,0.869888420236131,{},One-hot encoded
+King County,Extended,21613,5,OLS,1,0.1884017987253607,0.138347394364581,0.8743961954939228,{},One-hot encoded
+King County,Extended,21613,5,OLS,2,0.1861553226168394,0.1370881563989942,0.8725968254315686,{},One-hot encoded
+King County,Extended,21613,5,OLS,3,0.1887343669075755,0.1390869933120028,0.8721736731557775,{},One-hot encoded
+King County,Extended,21613,5,OLS,4,0.188085817643761,0.137209111721784,0.8731513639447622,{},One-hot encoded
+King County,Extended,21613,5,OLS,5,0.1889669107398741,0.1376699481111056,0.869888420236131,{},One-hot encoded
+King County,Parsimonious,10000,5,OLS,1,0.3565247025986165,0.2868224086005624,0.5525400262768886,{},Not applicable
+King County,Parsimonious,10000,5,OLS,2,0.3597340665984202,0.2838521230288214,0.5443657073348006,{},Not applicable
+King County,Parsimonious,10000,5,OLS,3,0.3554139898570761,0.2866587642595225,0.5327525065292105,{},Not applicable
+King County,Parsimonious,10000,5,OLS,4,0.3443205341336473,0.282188759245045,0.5626103542892913,{},Not applicable
+King County,Parsimonious,10000,5,OLS,5,0.3659338179841698,0.2918145729866997,0.4993206251513447,{},Not applicable
+King County,Parsimonious,10000,5,Ridge,1,0.3565335675316354,0.2868427961150838,0.5525177739505699,{'model__alpha': 10},Not applicable
+King County,Parsimonious,10000,5,Ridge,2,0.3597330896006724,0.2838529487614976,0.5443681822356488,{'model__alpha': 1},Not applicable
+King County,Parsimonious,10000,5,Ridge,3,0.3553882570016685,0.2866894828415435,0.5328201638373778,{'model__alpha': 10},Not applicable
+King County,Parsimonious,10000,5,Ridge,4,0.3443731292189799,0.2822353018290424,0.5624767212326747,{'model__alpha': 10},Not applicable
+King County,Parsimonious,10000,5,Ridge,5,0.3659101359725269,0.2918441781713836,0.4993854276403525,{'model__alpha': 10},Not applicable
+King County,Parsimonious,10000,5,Random Forest,1,0.3407937725558201,0.2704337046270685,0.5911554239546049,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,10000,5,Random Forest,2,0.3415032298209663,0.2657645396048996,0.5893773516396356,"{'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,10000,5,Random Forest,3,0.3411365121753494,0.270182467985237,0.5695384621606987,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,10000,5,Random Forest,4,0.3279078622639251,0.2627102210502353,0.6033145138535314,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,10000,5,Random Forest,5,0.3416428954058831,0.2681548763777588,0.563585275494022,"{'model__max_depth': 10, 'model__min_samples_leaf': 5, 'model__n_estimators': 500}",Not applicable
+King County,Parsimonious,10000,5,XGBoost,1,0.3375496875985529,0.2676618056424986,0.5989021250965114,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,10000,5,XGBoost,2,0.3392726804852879,0.266040158307971,0.594723848078064,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,10000,5,XGBoost,3,0.3378278437674775,0.2672469149638593,0.5778480247483421,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 1.0}",Not applicable
+King County,Parsimonious,10000,5,XGBoost,4,0.3231700611775757,0.2603302246241109,0.6146947806567551,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Parsimonious,10000,5,XGBoost,5,0.3411916362184714,0.2688770341516868,0.5647373913143325,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.05, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",Not applicable
+King County,Extended,10000,5,OLS,1,0.1887771252601719,0.1377864233410478,0.8745491302044686,{},One-hot encoded
+King County,Extended,10000,5,OLS,2,0.1902282407396779,0.1383423785746075,0.8725900774194588,{},One-hot encoded
+King County,Extended,10000,5,OLS,3,0.1859921687110964,0.1362802169734199,0.8720420540260183,{},One-hot encoded
+King County,Extended,10000,5,OLS,4,0.1789211086178221,0.1338952357223283,0.8818956722388394,{},One-hot encoded
+King County,Extended,10000,5,OLS,5,0.1936347431159386,0.1400034091639457,0.8598086638843501,{},One-hot encoded
+King County,Extended,10000,5,Ridge,1,0.1887744044279676,0.137790134419955,0.8745527464085645,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,10000,5,Ridge,2,0.190227334215268,0.1383427625354326,0.8725912917494576,{'model__alpha': 0.01},One-hot encoded
+King County,Extended,10000,5,Ridge,3,0.1859453471229808,0.1362389062499616,0.872106470072927,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,10000,5,Ridge,4,0.1789228101223688,0.1338977577933413,0.88189342593031,{'model__alpha': 0.01},One-hot encoded
+King County,Extended,10000,5,Ridge,5,0.1936559543808299,0.1400174307800038,0.859777948338287,{'model__alpha': 0.1},One-hot encoded
+King County,Extended,10000,5,Random Forest,1,0.1874803914240078,0.1289502182076054,0.8762666864510177,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,10000,5,Random Forest,2,0.186506794901079,0.1309217606686012,0.8775263710135552,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,10000,5,Random Forest,3,0.1870390255211789,0.1322352998358559,0.8705975778731859,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,10000,5,Random Forest,4,0.1700094366943858,0.1215902612295243,0.8933677169290076,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,10000,5,Random Forest,5,0.1864042942726821,0.1306093374958533,0.8700828652813575,"{'model__max_depth': None, 'model__min_samples_leaf': 1, 'model__n_estimators': 500}",One-hot encoded
+King County,Extended,10000,5,XGBoost,1,0.1710593296053187,0.1224284474907831,0.8969925890331194,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,10000,5,XGBoost,2,0.1723792150057548,0.1233362541107244,0.8953779883917898,"{'model__colsample_bytree': 1.0, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,10000,5,XGBoost,3,0.1717169863171684,0.1218297279628011,0.8909302145281722,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,10000,5,XGBoost,4,0.1591456284704499,0.1165501248406102,0.90656016168345,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Extended,10000,5,XGBoost,5,0.1744409871113083,0.1238859735813736,0.8862237334933859,"{'model__colsample_bytree': 0.8, 'model__learning_rate': 0.1, 'model__max_depth': 3, 'model__n_estimators': 300, 'model__subsample': 0.8}",One-hot encoded
+King County,Parsimonious,10000,5,TabPFN,1,0.3326027030212883,0.2613062221197131,0.6105726144784995,{},Not applicable
+King County,Parsimonious,10000,5,TabPFN,2,0.332963478009442,0.2586808965950153,0.6096569353305084,{},Not applicable
+King County,Parsimonious,10000,5,TabPFN,3,0.333232712731587,0.2611337776455311,0.5892541347640062,{},Not applicable
+King County,Parsimonious,10000,5,TabPFN,4,0.3160439930207262,0.2525819335432075,0.6314997969554199,{},Not applicable
+King County,Parsimonious,10000,5,TabPFN,5,0.3346138035969663,0.259412539068585,0.5813584663078804,{},Not applicable
+King County,Extended,10000,5,TabPFN,1,0.158555253976259,0.1097693237852963,0.9115014376894532,{},Category-coded
+King County,Extended,10000,5,TabPFN,2,0.1592342835530809,0.1104065190989611,0.9107257058328228,{},Category-coded
+King County,Extended,10000,5,TabPFN,3,0.15727331694253172,0.10987705643022665,0.9085069646788348,{},Category-coded
+King County,Extended,10000,5,TabPFN,4,0.14433163464497967,0.10541295341599138,0.9231461352594841,{},Category-coded
+King County,Extended,10000,5,TabPFN,5,0.16318833669930896,0.11287610548183624,0.900429006778424,{},Category-coded

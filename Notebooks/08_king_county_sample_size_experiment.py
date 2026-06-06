@@ -2,7 +2,7 @@
 # # King County: sample-size sensitivity experiment
 #
 # This notebook evaluates the King County models on nested subsamples of
-# 1,000, 2,500, and 5,000 observations. The full-dataset results are loaded
+# 1,000, 2,500, 5,000, and 10,000 observations. The full-dataset results are loaded
 # from the already-computed final comparison table and are not rerun.
 #
 # The extended TabPFN specification uses category-coded `zipcode`, matching the
@@ -11,6 +11,7 @@
 
 # %%
 import numpy as np
+import os
 import pandas as pd
 from IPython.display import display
 from sklearn.base import clone
@@ -22,11 +23,14 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
+
+os.environ.setdefault("TABPFN_DISABLE_TELEMETRY", "1")
+
 from tabpfn import TabPFNRegressor
 from xgboost import XGBRegressor
 
 RANDOM_STATE = 2
-SAMPLE_SIZES = [1000, 2500, 5000]
+SAMPLE_SIZES = [1000, 2500, 5000, 10000]
 FOLD_RESULTS_PATH = "../Results/king_county_sample_size_fold_results.csv"
 
 # %%
@@ -394,7 +398,18 @@ full_results = full_results[
     ]
 ]
 
-combined_summary = pd.concat([summary_export, full_results], ignore_index=True)
+full_sizes = set(full_results["sample_size"].unique())
+full_ols = summary_export[
+    summary_export["sample_size"].isin(full_sizes)
+    & summary_export["model"].eq("OLS")
+]
+sample_size_summary = summary_export[
+    ~summary_export["sample_size"].isin(full_sizes)
+]
+combined_summary = pd.concat(
+    [sample_size_summary, full_results, full_ols],
+    ignore_index=True,
+)
 model_order = ["OLS", "Ridge", "Random Forest", "XGBoost", "TabPFN"]
 combined_summary["model"] = pd.Categorical(
     combined_summary["model"],

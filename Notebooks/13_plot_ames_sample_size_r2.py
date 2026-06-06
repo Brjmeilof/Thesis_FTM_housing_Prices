@@ -18,7 +18,7 @@ os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "thesis_
 import matplotlib.pyplot as plt
 import pandas as pd
 
-FOLD_RESULTS_PATH = RESULTS_DIR / "all_results_fold_results.csv"
+SUMMARY_RESULTS_PATH = RESULTS_DIR / "all_results_summary.csv"
 
 DATASETS = {
     "Ames Housing": "ames",
@@ -35,21 +35,21 @@ MODEL_ORDER = ["OLS", "Random Forest", "XGBoost", "TabPFN"]
 
 
 # %%
-fold_results = pd.read_csv(FOLD_RESULTS_PATH)
+summary_results = pd.read_csv(SUMMARY_RESULTS_PATH)
 
-plot_results = fold_results.loc[
-    fold_results["dataset"].isin(DATASETS),
-    ["dataset", "specification", "sample_size", "model", "fold", "r2"],
+summary = summary_results.loc[
+    summary_results["dataset"].isin(DATASETS)
+    & summary_results["model"].isin(MODEL_ORDER),
+    [
+        "dataset",
+        "specification",
+        "sample_size",
+        "model",
+        "r2_mean",
+        "r2_std",
+    ],
 ].copy()
-
-summary = (
-    plot_results.groupby(
-        ["dataset", "specification", "sample_size", "model"],
-        as_index=False,
-    )
-    .agg(r2_mean=("r2", "mean"), r2_std=("r2", "std"))
-    .sort_values(["dataset", "specification", "sample_size", "model"])
-)
+summary = summary.sort_values(["dataset", "specification", "sample_size", "model"])
 
 
 # %%
