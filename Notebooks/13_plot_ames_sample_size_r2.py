@@ -2,8 +2,8 @@
 # # R-squared by sample size
 #
 # Creates one baseline figure and one extended figure for each dataset. Each
-# line shows the mean 5-fold R-squared for a model, with error bars showing one
-# standard deviation across folds.
+# line shows the mean 5-fold R-squared for a model, with error bars showing the
+# Nadeau-Bengio corrected standard error across folds.
 
 # %%
 from pathlib import Path
@@ -18,7 +18,7 @@ os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "thesis_
 import matplotlib.pyplot as plt
 import pandas as pd
 
-SUMMARY_RESULTS_PATH = RESULTS_DIR / "all_results_summary.csv"
+SUMMARY_RESULTS_PATH = RESULTS_DIR / "all_results_corrected_standard_errors.csv"
 
 DATASETS = {
     "Ames Housing": "ames",
@@ -41,7 +41,7 @@ summary = summary_results.loc[
         "sample_size",
         "model",
         "r2_mean",
-        "r2_std",
+        "r2_corrected_se",
     ],
 ].copy()
 summary = summary.sort_values(["dataset", "specification", "sample_size", "model"])
@@ -63,7 +63,7 @@ def plot_dataset_specification(dataset, specification):
         ax.errorbar(
             model_data["sample_size"],
             model_data["r2_mean"],
-            yerr=model_data["r2_std"],
+            yerr=model_data["r2_corrected_se"],
             marker="o",
             linewidth=2,
             capsize=4,
@@ -76,8 +76,8 @@ def plot_dataset_specification(dataset, specification):
     ax.grid(True, axis="y", alpha=0.3)
     ax.legend(title="Model", frameon=False)
 
-    y_min = max(0, data["r2_mean"].sub(data["r2_std"]).min() - 0.03)
-    y_max = min(1, data["r2_mean"].add(data["r2_std"]).max() + 0.03)
+    y_min = max(0, data["r2_mean"].sub(data["r2_corrected_se"]).min() - 0.03)
+    y_max = min(1, data["r2_mean"].add(data["r2_corrected_se"]).max() + 0.03)
     ax.set_ylim(y_min, y_max)
 
     fig.tight_layout()
