@@ -76,8 +76,11 @@ def plot_dataset_specification(dataset, specification):
     ax.grid(True, axis="y", alpha=0.3)
     ax.legend(title="Model", frameon=False)
 
-    y_min = max(0, data["rmse_mean"].sub(data["rmse_corrected_se"]).min() - 0.02)
-    y_max = data["rmse_mean"].add(data["rmse_corrected_se"]).max() + 0.02
+    lower = data["rmse_mean"].sub(data["rmse_corrected_se"]).min()
+    upper = data["rmse_mean"].add(data["rmse_corrected_se"]).max()
+    padding = (upper - lower) * 0.08
+    y_min = max(0, lower - padding)
+    y_max = upper + padding
     ax.set_ylim(y_min, y_max)
 
     fig.tight_layout()
