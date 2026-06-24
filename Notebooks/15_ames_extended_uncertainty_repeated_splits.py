@@ -9,6 +9,7 @@
 from pathlib import Path
 import os
 import tempfile
+import warnings
 
 os.environ.setdefault("MPLBACKEND", "Agg")
 os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "thesis_matplotlib"))
@@ -36,6 +37,11 @@ PREDICTIONS_PATH = RESULTS_DIR / "ames_extended_uncertainty_repeated_predictions
 SPLIT_SUMMARY_PATH = RESULTS_DIR / "ames_extended_uncertainty_split_summary.csv"
 AGGREGATED_SUMMARY_PATH = RESULTS_DIR / "ames_extended_uncertainty_aggregated_summary.csv"
 FIGURE_PATH = RESULTS_DIR / "ames_extended_uncertainty_repeated_coverage_width.png"
+
+# Reuse the already-computed XGBoost Quantile and TabPFN predictions, and only
+# refit the linear quantile model that replaces OLS.
+REUSE_EXISTING_MACHINE_LEARNING_RESULTS = True
+REUSED_MODEL_NAMES = ["XGBoost Quantile", "TabPFN"]
 
 
 # %%
@@ -77,7 +83,7 @@ extended_categorical_features = [
 extended_features = extended_numeric_features + extended_categorical_features
 
 
-def make_extended_preprocessor():
+def make_extended_preprocessor(drop_first=False):
     return ColumnTransformer(
         [
             (
@@ -95,7 +101,11 @@ def make_extended_preprocessor():
                         ),
                         (
                             "onehot",
-                            OneHotEncoder(handle_unknown="ignore", sparse_output=False),
+                            OneHotEncoder(
+                                drop="first" if drop_first else None,
+                                handle_unknown="ignore",
+                                sparse_output=False,
+                            ),
                         ),
                     ]
                 ),
@@ -137,6 +147,25 @@ def sort_quantiles(q05, q50, q95):
     return sorted_quantiles[:, 0], sorted_quantiles[:, 1], sorted_quantiles[:, 2], int(crossings)
 
 
+def sort_quantiles_with_standard_errors(q05, q50, q95, q05_se, q50_se, q95_se):
+    """Sort crossed quantiles and keep standard errors paired with predictions."""
+    predictions = np.vstack([q05, q50, q95]).T
+    standard_errors = np.vstack([q05_se, q50_se, q95_se]).T
+    order = np.argsort(predictions, axis=1)
+    sorted_predictions = np.take_along_axis(predictions, order, axis=1)
+    sorted_standard_errors = np.take_along_axis(standard_errors, order, axis=1)
+    crossings = np.any(np.diff(predictions, axis=1) < 0, axis=1).sum()
+    return (
+        sorted_predictions[:, 0],
+        sorted_predictions[:, 1],
+        sorted_predictions[:, 2],
+        sorted_standard_errors[:, 0],
+        sorted_standard_errors[:, 1],
+        sorted_standard_errors[:, 2],
+        int(crossings),
+    )
+
+
 def pinball(y_true, y_pred, alpha):
     return mean_pinball_loss(y_true, y_pred, alpha=alpha)
 
@@ -164,29 +193,60 @@ def summarize_predictions(seed, predictions):
 
 
 # %%
-def fit_predict_ols(seed, X_train_val, X_test, y_train_val, y_test):
-    # Classical OLS prediction intervals include residual uncertainty and
-    # uncertainty in the estimated conditional mean.
-    preprocessor = make_extended_preprocessor().fit(X_train_val)
+def prediction_standard_errors(design_matrix, covariance_matrix):
+    covariance_matrix = np.asarray(covariance_matrix)
+    variances = np.einsum("ij,jk,ik->i", design_matrix, covariance_matrix, design_matrix)
+    return np.sqrt(np.clip(variances, a_min=0, a_max=None))
+
+
+def fit_predict_quantile_linear(seed, X_train_val, X_test, y_train_val, y_test):
+    # Quantile linear regression replaces OLS while keeping the same repeated
+    # train/validation/test splits used by the other uncertainty models.
+    preprocessor = make_extended_preprocessor(drop_first=True).fit(X_train_val)
     X_train_design = preprocessor.transform(X_train_val)
     X_test_design = preprocessor.transform(X_test)
 
     X_train_design = sm.add_constant(X_train_design, has_constant="add")
     X_test_design = sm.add_constant(X_test_design, has_constant="add")
 
-    model = sm.OLS(y_train_val.to_numpy(), X_train_design).fit()
-    prediction_frame = model.get_prediction(X_test_design).summary_frame(alpha=0.10)
+    quantile_predictions = []
+    quantile_standard_errors = []
+    for alpha in QUANTILES:
+        model = sm.QuantReg(y_train_val.to_numpy(), X_train_design)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            result = model.fit(q=alpha, max_iter=10000, p_tol=1e-6)
+        quantile_predictions.append(result.predict(X_test_design))
+        quantile_standard_errors.append(
+            prediction_standard_errors(X_test_design, result.cov_params())
+        )
+
+    (
+        q05,
+        q50,
+        q95,
+        q05_standard_error,
+        q50_standard_error,
+        q95_standard_error,
+        crossings,
+    ) = sort_quantiles_with_standard_errors(
+        *quantile_predictions,
+        *quantile_standard_errors,
+    )
 
     return pd.DataFrame(
         {
             "seed": seed,
             "ames_index": y_test.index,
-            "model": "OLS",
+            "model": "Quantile Linear Regression",
             "y_true": y_test.to_numpy(),
-            "q05": prediction_frame["obs_ci_lower"].to_numpy(),
-            "q50": prediction_frame["mean"].to_numpy(),
-            "q95": prediction_frame["obs_ci_upper"].to_numpy(),
-            "quantile_crossings_fixed": 0,
+            "q05": q05,
+            "q50": q50,
+            "q95": q95,
+            "q05_standard_error": q05_standard_error,
+            "q50_standard_error": q50_standard_error,
+            "q95_standard_error": q95_standard_error,
+            "quantile_crossings_fixed": crossings,
             "xgb_validation_pinball_mean": np.nan,
             "xgb_best_params": "",
         }
@@ -272,6 +332,9 @@ def fit_predict_xgboost(seed, X_train, X_val, X_train_val, X_test, y_train, y_va
             "q05": q05,
             "q50": q50,
             "q95": q95,
+            "q05_standard_error": np.nan,
+            "q50_standard_error": np.nan,
+            "q95_standard_error": np.nan,
             "quantile_crossings_fixed": crossings,
             "xgb_validation_pinball_mean": validation_pinball,
             "xgb_best_params": str(best_params),
@@ -314,6 +377,9 @@ def fit_predict_tabpfn(seed, X_train_val, X_test, y_train_val, y_test):
             "q05": q05,
             "q50": q50,
             "q95": q95,
+            "q05_standard_error": np.nan,
+            "q50_standard_error": np.nan,
+            "q95_standard_error": np.nan,
             "quantile_crossings_fixed": crossings,
             "xgb_validation_pinball_mean": np.nan,
             "xgb_best_params": "",
@@ -323,7 +389,6 @@ def fit_predict_tabpfn(seed, X_train_val, X_test, y_train_val, y_test):
 
 # %%
 prediction_frames = []
-summary_rows = []
 
 for seed in SEEDS:
     print(f"Running seed {seed}...")
@@ -338,10 +403,27 @@ for seed in SEEDS:
         y_test,
     ) = make_split(seed)
 
-    seed_predictions = [
-        fit_predict_ols(seed, X_train_val, X_test, y_train_val, y_test),
-        fit_predict_xgboost(
-            seed,
+    prediction_frames.append(
+        fit_predict_quantile_linear(seed, X_train_val, X_test, y_train_val, y_test)
+    )
+
+if REUSE_EXISTING_MACHINE_LEARNING_RESULTS:
+    existing_predictions = pd.read_csv(PREDICTIONS_PATH)
+    existing_predictions = existing_predictions[
+        existing_predictions["model"].isin(REUSED_MODEL_NAMES)
+    ].copy()
+    for column in [
+        "q05_standard_error",
+        "q50_standard_error",
+        "q95_standard_error",
+    ]:
+        if column not in existing_predictions.columns:
+            existing_predictions[column] = np.nan
+    prediction_frames.append(existing_predictions)
+else:
+    for seed in SEEDS:
+        print(f"Running machine-learning uncertainty models for seed {seed}...")
+        (
             X_train,
             X_val,
             X_train_val,
@@ -350,17 +432,31 @@ for seed in SEEDS:
             y_val,
             y_train_val,
             y_test,
-        ),
-        fit_predict_tabpfn(seed, X_train_val, X_test, y_train_val, y_test),
-    ]
-
-    for model_predictions in seed_predictions:
-        prediction_frames.append(model_predictions)
-        summary_rows.append(summarize_predictions(seed, model_predictions))
+        ) = make_split(seed)
+        prediction_frames.extend(
+            [
+                fit_predict_xgboost(
+                    seed,
+                    X_train,
+                    X_val,
+                    X_train_val,
+                    X_test,
+                    y_train,
+                    y_val,
+                    y_train_val,
+                    y_test,
+                ),
+                fit_predict_tabpfn(seed, X_train_val, X_test, y_train_val, y_test),
+            ]
+        )
 
 predictions = pd.concat(prediction_frames, ignore_index=True)
 predictions.to_csv(PREDICTIONS_PATH, index=False)
 
+summary_rows = [
+    summarize_predictions(seed, model_predictions)
+    for (seed, _), model_predictions in predictions.groupby(["seed", "model"], sort=False)
+]
 split_summary = pd.DataFrame(summary_rows)
 split_summary = split_summary[
     [
@@ -405,11 +501,12 @@ aggregated_summary.to_csv(AGGREGATED_SUMMARY_PATH, index=False)
 
 
 # %%
-model_order = ["OLS", "XGBoost Quantile", "TabPFN"]
+model_order = ["Quantile Linear Regression", "XGBoost Quantile", "TabPFN"]
 plot_data = aggregated_summary.set_index("model").loc[model_order].reset_index()
+plot_labels = ["Quantile Linear\nRegression", "XGBoost\nQuantile", "TabPFN"]
 x = np.arange(len(model_order))
 
-fig, axes = plt.subplots(1, 2, figsize=(10, 4), dpi=150)
+fig, axes = plt.subplots(1, 2, figsize=(8.5, 4), dpi=150)
 axes[0].errorbar(
     x,
     plot_data["coverage_90_mean"],
@@ -420,9 +517,9 @@ axes[0].errorbar(
 )
 axes[0].axhline(0.90, color="#D62728", linestyle="--", linewidth=1.5, label="Target")
 axes[0].set_xticks(x)
-axes[0].set_xticklabels(model_order, rotation=20)
+axes[0].set_xticklabels(plot_labels)
 axes[0].set_ylabel("Mean 90% coverage")
-axes[0].set_ylim(0, 1)
+axes[0].set_ylim(0.78, 0.93)
 axes[0].legend(frameon=False)
 
 axes[1].errorbar(
@@ -434,10 +531,10 @@ axes[1].errorbar(
     color="#F58518",
 )
 axes[1].set_xticks(x)
-axes[1].set_xticklabels(model_order, rotation=20)
+axes[1].set_xticklabels(plot_labels)
 axes[1].set_ylabel("Mean interval width")
 
-fig.tight_layout()
+fig.tight_layout(w_pad=1.5)
 fig.savefig(FIGURE_PATH, bbox_inches="tight")
 plt.close(fig)
 
