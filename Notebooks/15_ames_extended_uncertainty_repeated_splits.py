@@ -36,6 +36,9 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 PREDICTIONS_PATH = RESULTS_DIR / "ames_extended_uncertainty_repeated_predictions.csv"
 SPLIT_SUMMARY_PATH = RESULTS_DIR / "ames_extended_uncertainty_split_summary.csv"
 AGGREGATED_SUMMARY_PATH = RESULTS_DIR / "ames_extended_uncertainty_aggregated_summary.csv"
+PRESENTATION_TABLE_PATH = (
+    RESULTS_DIR / "ames_extended_uncertainty_presentation_table.csv"
+)
 FIGURE_PATH = RESULTS_DIR / "ames_extended_uncertainty_repeated_coverage_width.png"
 
 # Reuse the already-computed XGBoost Quantile and TabPFN predictions, and only
@@ -483,6 +486,7 @@ metrics = [
     "pinball_95",
     "pinball_mean",
 ]
+model_order = ["Quantile Linear Regression", "XGBoost Quantile", "TabPFN"]
 aggregated_summary = (
     split_summary.groupby("model")[metrics]
     .agg(["mean", "std"])
@@ -499,9 +503,23 @@ aggregated_summary.columns = [
 aggregated_summary = aggregated_summary.sort_values("pinball_mean_mean")
 aggregated_summary.to_csv(AGGREGATED_SUMMARY_PATH, index=False)
 
+presentation_table = (
+    split_summary.groupby("model")
+    .agg(
+        mean_coverage=("coverage_90", "mean"),
+        se_coverage=("coverage_90", "sem"),
+        mean_width=("avg_interval_width", "mean"),
+        se_width=("avg_interval_width", "sem"),
+        mean_pinball_loss=("pinball_mean", "mean"),
+        se_pinball_loss=("pinball_mean", "sem"),
+    )
+    .reset_index()
+)
+presentation_table = presentation_table.set_index("model").loc[model_order].reset_index()
+presentation_table.to_csv(PRESENTATION_TABLE_PATH, index=False)
+
 
 # %%
-model_order = ["Quantile Linear Regression", "XGBoost Quantile", "TabPFN"]
 plot_data = aggregated_summary.set_index("model").loc[model_order].reset_index()
 plot_labels = ["Quantile Linear\nRegression", "XGBoost\nQuantile", "TabPFN"]
 x = np.arange(len(model_order))
@@ -552,10 +570,13 @@ closest_coverage_model = (
 print("Repeated-split Ames extended uncertainty comparison complete.")
 print(f"Saved split summary: {SPLIT_SUMMARY_PATH}")
 print(f"Saved aggregated summary: {AGGREGATED_SUMMARY_PATH}")
+print(f"Saved presentation table: {PRESENTATION_TABLE_PATH}")
 print(f"Saved predictions: {PREDICTIONS_PATH}")
 print(f"Saved figure: {FIGURE_PATH}")
 print("\nAggregated summary:")
 print(aggregated_summary.to_string(index=False))
+print("\nPresentation table:")
+print(presentation_table.to_string(index=False))
 print("\nBrief interpretation:")
 print(
     f"{best_pinball_model} has the lowest average pinball loss across the five "
